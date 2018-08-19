@@ -28,8 +28,8 @@ const Dashboard = () =>
 //   import ('@/views/base/Switches')
 // const Tables = () =>
 //   import ('@/views/base/Tables')
-// const Tabs = () =>
-//   import ('@/views/base/Tabs')
+const Tabs = () =>
+  import ('@/views/base/Tabs')
 // const Breadcrumbs = () =>
 //   import ('@/views/base/Breadcrumbs')
 // const Carousels = () =>
@@ -227,11 +227,11 @@ export default new Router({
       //       name: 'Tables',
       //       component: Tables
       //     },
-      //     {
-      //       path: 'tabs',
-      //       name: 'Tabs',
-      //       component: Tabs
-      //     },
+      {
+        path: 'tabs',
+        name: 'Tabs',
+        component: Tabs
+      },
       //     {
       //       path: 'breadcrumbs',
       //       name: 'Breadcrumbs',

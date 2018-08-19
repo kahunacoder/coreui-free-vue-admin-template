@@ -1,5 +1,37 @@
 <template>
   <div class="animated fadeIn">
+  <b-row>
+    <b-col>
+      <b-card>
+
+      <b-tabs v-model="tabIndex[0]">
+        <b-tab active>
+          <template slot="title">
+            <i class="icon-speedometer"></i> {{tabs[0]}}
+          </template>
+          <b-card>
+          <template slot="header">
+            NetStat
+          </template>
+          <br><iframe src="http://localhost:19999" frameborder="0" width="100%" height="500"></iframe>
+          </b-card>
+        </b-tab>
+        <b-tab>
+          <template slot="title">
+            <i class="fa fa-ship"></i> {{tabs[1]}}
+          </template>
+          <b-card>
+          <template slot="header">
+            Docker
+          </template>
+          <br><iframe src="http://localhost:9000/#/dashboard" frameborder="0" width="100%" height="500"></iframe>
+          </b-card>
+        </b-tab>
+      </b-tabs>
+      </b-card>
+    </b-col>
+    </b-row>
+
     <b-row>
       <b-col sm="6" lg="3">
         <b-card no-body class="bg-primary">
@@ -472,6 +504,13 @@ export default {
   },
   data: function () {
     return {
+      tabIndex: [0, 0],
+      tabs: [
+        'Host',
+        'Docker',
+        'Staging Server',
+        'Live Server'
+      ],
       selected: 'Month',
       tableItems: [
         {
@@ -570,8 +609,9 @@ export default {
 </script>
 
 <style>
-  /* IE fix */
-  #card-chart-01, #card-chart-02 {
-    width: 100% !important;
-  }
+/* IE fix */
+#card-chart-01,
+#card-chart-02 {
+  width: 100% !important;
+}
 </style>

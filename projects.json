@@ -3,8 +3,11 @@
       "name": "SoLunTide",
       "slug": "soluntide",
       "docRoot": "dist",
+      "tld": "gts",
       "icon": "statics/favicon.ico",
       "status": "staging",
+      "remoteRepo": "https://bitbucket.org/kahunacoder/soluntide-web/src/master/",
+      "localRepo": "/Users/gts/Documents/Projects/Server/SoLunTide/app",
       "editor": "vscode://file/Users/gts/Documents/Projects/Server/SoLunTide/SoLunTide.code-workspace",
       "log": "vscode://file/Users/gts/Documents/Projects/Server/SoLunTide/app/logs/soluntide_error.log"
     },
@@ -12,9 +15,12 @@
       "name": "WikiKauKau",
       "slug": "wikikaukau",
       "docRoot": "web",
+      "tld": "gts",
       "icon": "assets/images/favicon.ico",
       "adminUrl": "http://wikikaukau.gts/admin",
       "status": "dev",
+      "remoteRepo": "https://github.com/kahunacoder/coreui-free-vue-admin-template",
+      "localRepo": "/Users/gts/Documents/Projects/Server/wikikaukau/web",
       "editor": "vscode://file/Users/gts/Documents/Projects/Server/wikikaukau/wikikaukau.code-workspace",
       "log": "vscode://file/Users/gts/Documents/Projects/Server/wikikaukau/logs/wikikaukau_error.log"
     },
@@ -22,8 +28,11 @@
       "name": "PoiDogRadio",
       "slug": "poidogradio",
       "docRoot": "app/public",
+      "tld": "gts",
       "icon": "favicon.ico",
       "status": "live",
+      "remoteRepo": "https://bitbucket.org/kahunacoder/poidogradio/src/master/",
+      "localRepo": "/Users/gts/Documents/Projects/Server/poidogradio/app",
       "editor": "vscode://file/Users/gts/Documents/Projects/Server/poidogradio/poidogradio.code-workspace",
       "log": "vscode://file/Users/gts/Documents/Projects/Server/poidogradio/app/storage/logs/poidogradio_error.log"
 
