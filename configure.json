@@ -1,0 +1,84 @@
+{
+  "projects": [{
+      "name": "SoLunTide",
+      "slug": "soluntide",
+      "status": "staging",
+      "language": "Javascript",
+      "libraries": ["Quasar", "VueJS"],
+      "Client": "Kahunacoder",
+      "Servers": ["ks.gs", "laradock"]
+    },
+    {
+      "name": "Wiki KauKau",
+      "slug": "wikikaukau",
+      "status": "dev",
+      "language": "PHP",
+      "libraries": ["Laravel"],
+      "Client": "Kahunacoder",
+      "Servers": ["ks.gs", "laradock"]
+    },
+    {
+      "name": "Portfolio",
+      "slug": "portfolio",
+      "status": "live",
+      "language": "Ruby",
+      "libraries": ["Jekyll"],
+      "Client": "Kahunacoder",
+      "Servers": ["ks.gs", "laradock"]
+    },
+    {
+      "name": "Resume",
+      "slug": "resume",
+      "status": "live",
+      "language": "Ruby",
+      "libraries": ["Jekyll"],
+      "Client": "Kahunacoder",
+      "Servers": ["ks.gs", "laradock"]
+
+    },
+    {
+      "name": "Poi Dog Radio",
+      "slug": "poidogradio",
+      "status": "live",
+      "language": "PHP",
+      "libraries": ["Laravel"],
+      "Client": "Kahunacoder",
+      "Servers": ["ks.gs", "laradock"]
+    },
+    {
+      "name": "Projects Admin",
+      "slug": "projectsadmin",
+      "status": "dev",
+      "language": "Javascript",
+      "libraries": ["Coreui", "VueJS"],
+      "Client": "Kahunacoder",
+      "Servers": ["ks.gs", "laradock"]
+    }
+  ],
+  "devTools": [{
+      "name": "Cloud at Cost Panel",
+      "url": "https://panel.cloudatcost.com/index.php",
+      "icon": "icon-cloud"
+    },
+    {
+      "name": "Uptime Monitor",
+      "url": "https://my.pingdom.com/newchecks/checks",
+      "icon": "icon-monitor"
+    },
+    {
+      "name": "Github",
+      "url": "http://github.com/",
+      "icon": "fa fa-github"
+    },
+    {
+      "name": "BitBucket",
+      "url": "http://bitbucket.com/kahunacoder",
+      "icon": "fa fa-bitbucket"
+    }
+  ],
+  "projectRoot": "./",
+  "tld": "gts",
+  "projectsAdminConf": "/Users/gts/Documents/Projects/Server/projectsadmin/web/configure.json",
+  "projectsConf": "/Users/gts/Documents/Projects/Server/projectsadmin/web/projects/",
+  "edit": "vscode://file/Users/gts/Documents/Projects/Server/dockerhome/dockerhome.code-workspace"
+}

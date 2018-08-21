@@ -1,0 +1,21 @@
+{
+  "name": "ProjectsAdmin",
+  "slug": "projectsadmin",
+  "status": "dev",
+  "language": "Javascript",
+  "libraries": ["Coreui", "VueJS"],
+  "tld": "gts",
+  "Client": "Kahunacoder",
+  "Servers": ["ks.gs", "laradock"],
+  "root": "/Users/gts/Documents/Projects/Server/projectsadmin/web/",
+  "docRoot": "dist",
+  "url": "",
+  "icon": "favicon.ico",
+  "stagingUrl": "",
+  "remoteRepo": "https://bitbucket.org/kahunacoder/poidogradio/src/master/",
+  "editors": ["code", "subl"],
+  "conf": "/Users/gts/Documents/Projects/Server/laradock/nginx/sites/projectsadmin.conf",
+  "npm": true,
+  "speedio": "pa_gs",
+  "log": "../logs/projectsadmin_error.log"
+}

@@ -1,0 +1,21 @@
+{
+  "name": "Portfolio",
+  "slug": "portfolio",
+  "status": "live",
+  "language": "Ruby",
+  "libraries": ["Jekyll"],
+  "tld": "gts",
+  "Client": "Kahunacoder",
+  "Servers": ["ks.gs", "laradock"],
+  "root": "/Users/gts/Documents/Projects/Server/portfolio/site/",
+  "docRoot": "_site",
+  "url": "https://portfolio.kahunacoder.com/",
+  "icon": "favicon.ico",
+  "stagingUrl": "https://portfolio.kahunacoder.com/",
+  "remoteRepo": "https://bitbucket.org/kahunacoder/poidogradio/src/master/",
+  "editors": ["code", "subl"],
+  "conf": "/Users/gts/Documents/Projects/Server/laradock/nginx/sites/portfolio.conf",
+  "deploy": true,
+  "speedio": "p_kc_gs",
+  "log": "/Users/gts/Documents/Projects/Server/portfolio/logs/portfolio_error.log"
+}

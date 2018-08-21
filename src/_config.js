@@ -1,5 +1,5 @@
 // const fs = require("fs")
-import config from '../projects.json'
+import config from '../configure.json'
 // console.log(config)
 
 // const getConfig = (projectRoot) => {
@@ -24,5 +24,6 @@ export default {
   devTools: config.devTools,
   edit: config.edit,
   projectRoot: config.projectRoot,
-  tld: config.tld
+  tld: config.tld,
+  config: config
 }

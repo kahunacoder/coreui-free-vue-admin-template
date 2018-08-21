@@ -25,9 +25,28 @@ items.push(projects)
 
 
 for (let key in config.projects) {
+  var variant = ''
+  var text = ''
+  if (config.projects[key].status === 'live') {
+    variant = 'success'
+    text = 'Live'
+  }
+  if (config.projects[key].status === 'staging') {
+    variant = 'secondary'
+    text = 'Staging'
+  }
+  if (config.projects[key].status === 'dev') {
+    variant = 'warning'
+    text = 'Dev'
+  }
   let project = {
     name: config.projects[key].name,
     url: '/projects/' + config.projects[key].slug,
+    badge: {
+      variant: variant,
+      text: text
+    }
+
     // children: [{
     //     name: 'View',
     //     url: config.projects[key].displayName,

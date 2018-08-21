@@ -1,0 +1,22 @@
+{
+  "name": "SoLunTide",
+  "slug": "soluntide",
+  "status": "staging",
+  "language": "Javascript",
+  "libraries": ["Quasar", "VueJS"],
+  "tld": "gts",
+  "Client": "Kahunacoder",
+  "Servers": ["ks.gs", "laradock"],
+  "root": "/Users/gts/Documents/Projects/Server/SoLunTide/app/",
+  "docRoot": "dist",
+  "url": "",
+  "icon": "statics/favicon.ico",
+  "stagingUrl": "http://soluntide.kc.gs",
+  "remoteRepo": "https://bitbucket.org/kahunacoder/soluntide-web/src/master/",
+  "editors": ["code", "subl"],
+  "conf": "/Users/gts/Documents/Projects/Server/laradock/nginx/sites/soluntide.conf",
+  "deploy": true,
+  "npm": true,
+  "speedio": "sol_kc_gs",
+  "log": "/Users/gts/Documents/Projects/Server/SoLunTide/app/logs/soluntide_error.log"
+}

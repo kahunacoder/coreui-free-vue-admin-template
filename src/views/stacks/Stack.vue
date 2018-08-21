@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-row>
+    <!-- <b-row>
       <b-col>
         <b-card>
           <template slot="header">
@@ -9,13 +9,13 @@
 
             <div class="card-header-actions">
 
-              <b-link :title="project.language" :href="'#/stacks/' + project.language" class="card-header-action btn-close">
+              <b-link :title="project.language" :href="'/stacks/' + project.language" class="card-header-action btn-close">
                 <img
                   :src="'img/tech-icons/' + project.language + '.png'"
                   class="img-icon" />
               </b-link>
               <span v-for="(library, index) in project.libraries" :key="`library-${index}`">
-                <b-link :title="library" :href="'#/stacks/' + library" class="card-header-action btn-close">
+                <b-link :title="library" :href="'/stacks/' + library" class="card-header-action btn-close">
                   <img
                     :src="'img/tech-icons/' + library + '.png'"
                     class="img-icon" />
@@ -225,11 +225,14 @@
           </b-list-group>
         </b-card>
       </b-col>
-    </b-row>
+    </b-row> -->
 
-    <!-- <b-row>
+    <b-row>
       <b-col>
         <b-card>
+          <template slot="header">
+            {{ stack }}
+          </template>
           <b-tabs v-model="tabIndex[0]">
             <b-tab active>
               <template slot="title">
@@ -244,7 +247,7 @@
                   </b-link>
                 </div>
               </template>
-              <br><iframe :src="speedtestio" frameborder="0" width="100%" height="500"></iframe>
+
               </b-card>
             </b-tab>
             <b-tab>
@@ -255,7 +258,7 @@
               <template slot="header">
                 Webdash
               </template>
-              <br><iframe :src="'http://localhost:' + webdash" frameborder="0" width="100%" height="500"></iframe>
+
               </b-card>
             </b-tab>
             <b-tab>
@@ -266,41 +269,29 @@
               <template slot="header">
                 Terminal
               </template>
-              <div id="terminal" style="width:100%;height:500px;"></div>
+
               </b-card>
             </b-tab>
           </b-tabs>
         </b-card>
       </b-col>
-    </b-row> -->
+    </b-row>
   </div>
 </template>
 
 <script>
 import config from '@/_config'
-import { Terminal } from 'xterm'
-import * as fit from 'xterm/lib/addons/fit/fit';
-Terminal.applyAddon(fit);
-// var term = new Terminal();
-// term.open(document.getElementById('terminal'));
-// // term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ')
-// term.fit();
 export default {
-  name: 'Project',
+  name: 'Stack',
   props: {
     caption: {
       type: String,
-      default: 'Project slug'
+      default: 'Project stack'
     },
   },
   computed: {
-    project: function () {
-      let slug = this.$route.params.slug
-      let project = require('../../../projects/' + slug + '.json')
-      return project
-    },
-    slug: function () {
-      return this.$route.params.slug
+    stack: function () {
+      return this.$route.params.stack
     }
 
   },
@@ -312,27 +303,13 @@ export default {
         'Webdash',
         'Terminal'
       ],
-      config: config,
-      fields: [
-        {key: 'key'},
-        {key: 'value'},
-      ],
-      webdash: '3456'
+      config: config
     }
-  },
-  mounted: () => {
-    let term = new Terminal();
-    term.open(document.getElementById('terminal'));
-    term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ')
-    // term.fit();
   },
   methods: {
     goBack() {
       this.$router.go(-1)
       // this.$router.replace({path: '/users'})
-    },
-    runSpeedtestio() {
-      '/Users/gts/Documents/Projects/Server/sitespeed.io/web/docker-compose run sitespeed.io http://' + this.$route.params.slug + this.project.tld + ' --graphite.host=graphite'
     },
     getBadge (status) {
       return status === 'live' ? 'success'
@@ -344,7 +321,6 @@ export default {
 }
 </script>
 <style scoped lang="css">
-@import "../../../node_modules/xterm/dist/xterm.css";
 .figure {
   margin-bottom: 4px;
   margin-right: 5%;

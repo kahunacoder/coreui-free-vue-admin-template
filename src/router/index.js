@@ -58,8 +58,8 @@ const Tabs = () =>
 //   import ('@/views/buttons/StandardButtons')
 // const ButtonGroups = () =>
 //   import ('@/views/buttons/ButtonGroups')
-// const Dropdowns = () =>
-//   import ('@/views/buttons/Dropdowns')
+const Dropdowns = () =>
+  import ('@/views/buttons/Dropdowns')
 // const BrandButtons = () =>
 //   import ('@/views/buttons/BrandButtons')
 
@@ -102,6 +102,11 @@ const Projects = () =>
   import ('@/views/projects/Projects')
 const Project = () =>
   import ('@/views/projects/Project')
+// Stacks
+const Stacks = () =>
+  import ('@/views/stacks/Stacks')
+const Stack = () =>
+  import ('@/views/stacks/Stack')
 
 Vue.use(Router)
 
@@ -172,6 +177,30 @@ export default new Router({
             },
             name: 'Project',
             component: Project,
+          },
+        ]
+      },
+      {
+        path: 'stacks',
+        meta: {
+          label: 'Stacks'
+        },
+        component: {
+          render(c) {
+            return c('router-view')
+          }
+        },
+        children: [{
+            path: '',
+            component: Stacks,
+          },
+          {
+            path: ':stack',
+            meta: {
+              label: 'Stack Details'
+            },
+            name: 'Stack',
+            component: Stack,
           },
         ]
       },
@@ -307,11 +336,11 @@ export default new Router({
       //           name: 'Button Groups',
       //           component: ButtonGroups
       //         },
-      //         {
-      //           path: 'dropdowns',
-      //           name: 'Dropdowns',
-      //           component: Dropdowns
-      //         },
+      {
+        path: 'dropdowns',
+        name: 'Dropdowns',
+        component: Dropdowns
+      }
       //         {
       //           path: 'brand-buttons',
       //           name: 'Brand Buttons',
