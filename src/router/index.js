@@ -103,10 +103,10 @@ const Projects = () =>
 const Project = () =>
   import ('@/views/projects/Project')
 // Stacks
-const Stacks = () =>
-  import ('@/views/stacks/Stacks')
-const Stack = () =>
-  import ('@/views/stacks/Stack')
+const Technologies = () =>
+  import ('@/views/technology/Technologies')
+const Technology = () =>
+  import ('@/views/technology/Technology')
 
 Vue.use(Router)
 
@@ -181,9 +181,9 @@ export default new Router({
         ]
       },
       {
-        path: 'stacks',
+        path: 'technologies',
         meta: {
-          label: 'Stacks'
+          label: 'Technologies'
         },
         component: {
           render(c) {
@@ -192,15 +192,15 @@ export default new Router({
         },
         children: [{
             path: '',
-            component: Stacks,
+            component: Technologies,
           },
           {
-            path: ':stack',
+            path: ':tech',
             meta: {
-              label: 'Stack Details'
+              label: 'Technology Details'
             },
-            name: 'Stack',
-            component: Stack,
+            name: 'Technology',
+            component: Technology,
           },
         ]
       },

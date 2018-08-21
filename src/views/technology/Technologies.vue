@@ -26,11 +26,11 @@
 <script>
 import config from '@/_config'
 export default {
-  name: 'Projects',
+  name: 'Technologies',
   props: {
     caption: {
       type: String,
-      default: 'Projects'
+      default: 'Technologies'
     },
     hover: {
       type: Boolean,

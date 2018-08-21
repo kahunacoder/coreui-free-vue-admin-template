@@ -9,13 +9,13 @@
 
             <div class="card-header-actions">
 
-              <b-link :title="project.language" :href="'#/stacks/' + project.language" class="card-header-action btn-close">
+              <b-link :title="project.language" :href="'#/technologies/' + project.language" class="card-header-action btn-close">
                 <img
                   :src="'img/tech-icons/' + project.language + '.png'"
                   class="img-icon" />
               </b-link>
               <span v-for="(library, index) in project.libraries" :key="`library-${index}`">
-                <b-link :title="library" :href="'#/stacks/' + library" class="card-header-action btn-close">
+                <b-link :title="library" :href="'#/technologies/' + library" class="card-header-action btn-close">
                   <img
                     :src="'img/tech-icons/' + library + '.png'"
                     class="img-icon" />
@@ -109,7 +109,7 @@
             <b-list-group-item>
               <div class="d-flex w-100 justify-content-between">
                 <h2 class="mb-1">Logs</h2>
-                <i class="fa fa-life-ring"></i>
+                <i class="icon-directions"></i>
               </div>
                 <figure title="View Error Logs" class="figure d-inline-block">
                   <a :href="'telnet:///usr/bin/open ' + project.log">

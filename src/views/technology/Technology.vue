@@ -231,7 +231,7 @@
       <b-col>
         <b-card>
           <template slot="header">
-            {{ stack }}
+            {{ tech }}
           </template>
           <b-tabs v-model="tabIndex[0]">
             <b-tab active>
@@ -282,16 +282,16 @@
 <script>
 import config from '@/_config'
 export default {
-  name: 'Stack',
+  name: 'Technology',
   props: {
     caption: {
       type: String,
-      default: 'Project stack'
+      default: 'Project Technology'
     },
   },
   computed: {
-    stack: function () {
-      return this.$route.params.stack
+    tech: function () {
+      return this.$route.params.tech
     }
 
   },
