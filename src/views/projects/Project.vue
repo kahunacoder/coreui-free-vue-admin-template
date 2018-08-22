@@ -58,7 +58,7 @@
             <b-list-group-item>
               <div class="d-flex w-100 justify-content-between">
                 <h2 class="mb-1">Editors</h2>
-                <i class="fa fa-code"></i>
+                <i class="fa fa-code" style="font-weight:bold;"></i>
               </div>
               <p>
                 <span v-for="(editor, index) in project.editors" :key="`editor-${index}`">
@@ -85,11 +85,11 @@
             <b-list-group-item>
               <div class="d-flex w-100 justify-content-between">
                 <h2 class="mb-1">Data</h2>
-                <i class="fa fa-life-ring"></i>
+                <i class="fa fa-database"></i>
               </div>
               <p>
                 <figure title="Open Sequel Pro"  class="figure d-inline-block">
-                  <a :href="project.log">
+                  <a :href="'telnet:///usr/bin/open ' + project.root + 'docker.spf'">
                     <img
                       src="img/tech-icons/sequel-pro.png"
                       class="figure-img img-fluid rounded" />
@@ -109,7 +109,7 @@
             <b-list-group-item>
               <div class="d-flex w-100 justify-content-between">
                 <h2 class="mb-1">Logs</h2>
-                <i class="icon-directions"></i>
+                <i class="fa fa-heartbeat"></i>
               </div>
                 <figure title="View Error Logs" class="figure d-inline-block">
                   <a :href="'telnet:///usr/bin/open ' + project.log">
@@ -202,7 +202,7 @@
             <b-list-group-item>
               <div class="d-flex w-100 justify-content-between">
                 <h2 class="mb-1">Performance</h2>
-                <i class="icon-speedometer"></i>
+                <i class="fa fa-tachometer"></i>
               </div>
                 <figure title="Open sitespeed.io for this project" class="figure d-inline-block">
                   <a :href="'http://127.0.0.1:3000/d/000000045/site-summary?orgId=1&var-base=sitespeed_io&var-path=default&var-group='+project.speedio+'&var-browser=chrome&var-connectivity=native&var-function=median'" target="speedtestio">
@@ -220,6 +220,37 @@
                     <figcaption class="figure-caption text-center">WebDash</figcaption>
                   </a>
                 </figure>
+                <figure title="Open Pingdom" class="figure d-inline-block">
+                  <a :href="'https://my.pingdom.com/newchecks/checks'" target="pingdom">
+                    <img
+                      src="img/tech-icons/pingdom.png"
+                      class="figure-img img-fluid rounded" />
+                    <figcaption class="figure-caption text-center">Uptime</figcaption>
+                  </a>
+                </figure>
+            </b-list-group-item>
+
+            <b-list-group-item>
+              <div class="d-flex w-100 justify-content-between">
+                <h2 class="mb-1">Servers</h2>
+                <i class="fa fa-server"></i>
+              </div>
+                <figure title="Open Cloud at Cost" class="figure d-inline-block">
+                  <a href="https://panel.cloudatcost.com/index.php" target="cloudatcost">
+                    <img
+                      src="img/tech-icons/cloudatcost.png"
+                      class="figure-img img-fluid rounded" />
+                    <figcaption class="figure-caption text-center">Cloud at Cost</figcaption>
+                  </a>
+                </figure>
+                <figure title="Open Docker" class="figure d-inline-block">
+                  <a :href="'http://localhost:9000/#/dashboard'" target="docker">
+                    <img
+                      src="img/tech-icons/docker.png"
+                      class="figure-img img-fluid rounded" />
+                    <figcaption class="figure-caption text-center">Docker</figcaption>
+                  </a>
+                </figure>
             </b-list-group-item>
 
           </b-list-group>
@@ -227,35 +258,30 @@
       </b-col>
     </b-row>
 
-    <!-- <b-row>
+    <b-row>
       <b-col>
         <b-card>
           <b-tabs v-model="tabIndex[0]">
             <b-tab active>
               <template slot="title">
-                <i class="icon-speedometer"></i> {{tabs[0]}}
+                <i class="fa fa-road"></i> {{tabs[0]}}
               </template>
               <b-card>
               <template slot="header">
-                Speedtestio
-                <div class="card-header-actions">
-                  <b-link title="run speedtest.io" href="#" class="card-header-action btn-close" v-on:click="runSpeedtestio">
-                    <i class="icon-control-play"></i>
-                  </b-link>
-                </div>
+                README.md
               </template>
-              <br><iframe :src="speedtestio" frameborder="0" width="100%" height="500"></iframe>
+              <vue-markdown :source="readme"># README.md</vue-markdown>
               </b-card>
             </b-tab>
             <b-tab>
               <template slot="title">
-                <i class="icon-wrench"></i> {{tabs[1]}}
+                <i class="fa fa-bookmark"></i> {{tabs[1]}}
               </template>
               <b-card>
               <template slot="header">
-                Webdash
+                Project Bookmarks
               </template>
-              <br><iframe :src="'http://localhost:' + webdash" frameborder="0" width="100%" height="500"></iframe>
+                Here
               </b-card>
             </b-tab>
             <b-tab>
@@ -272,7 +298,7 @@
           </b-tabs>
         </b-card>
       </b-col>
-    </b-row> -->
+    </b-row>
   </div>
 </template>
 
@@ -281,12 +307,16 @@ import config from '@/_config'
 import { Terminal } from 'xterm'
 import * as fit from 'xterm/lib/addons/fit/fit';
 Terminal.applyAddon(fit);
+import VueMarkdown from 'vue-markdown'
 // var term = new Terminal();
 // term.open(document.getElementById('terminal'));
 // // term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ')
 // term.fit();
 export default {
   name: 'Project',
+  components: {
+    VueMarkdown
+  },
   props: {
     caption: {
       type: String,
@@ -299,8 +329,8 @@ export default {
       let project = require('../../../projects/' + slug + '.json')
       return project
     },
-    slug: function () {
-      return this.$route.params.slug
+    readme: function () {
+      return this.project.root + 'README.md'
     }
 
   },
@@ -308,8 +338,8 @@ export default {
     return {
       tabIndex: [0, 0],
       tabs: [
-        'Speedtestio',
-        'Webdash',
+        'README.md',
+        'Project Bookmarks',
         'Terminal'
       ],
       config: config,

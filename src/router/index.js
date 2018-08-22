@@ -102,11 +102,16 @@ const Projects = () =>
   import ('@/views/projects/Projects')
 const Project = () =>
   import ('@/views/projects/Project')
-// Stacks
+// Technologies
 const Technologies = () =>
   import ('@/views/technology/Technologies')
 const Technology = () =>
   import ('@/views/technology/Technology')
+// Servers
+const Servers = () =>
+  import ('@/views/servers/Servers')
+const Server = () =>
+  import ('@/views/servers/Server')
 
 Vue.use(Router)
 
@@ -177,6 +182,30 @@ export default new Router({
             },
             name: 'Project',
             component: Project,
+          },
+        ]
+      },
+      {
+        path: 'servers',
+        meta: {
+          label: 'Servers'
+        },
+        component: {
+          render(c) {
+            return c('router-view')
+          }
+        },
+        children: [{
+            path: '',
+            component: Servers,
+          },
+          {
+            path: ':slug',
+            meta: {
+              label: 'Server Details'
+            },
+            name: 'Server',
+            component: Server,
           },
         ]
       },

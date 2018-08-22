@@ -23,6 +23,7 @@ let projects = {
 }
 items.push(projects)
 
+var merged = {}
 
 for (let key in config.projects) {
   var variant = ''
@@ -46,44 +47,33 @@ for (let key in config.projects) {
       variant: variant,
       text: text
     }
-
-    // children: [{
-    //     name: 'View',
-    //     url: config.projects[key].displayName,
-    //     icon: 'icon-web',
-    //   },
-    //   {
-    //     name: 'Edit',
-    //     url: config.projects[key].editor,
-    //     icon: 'fa fa-code',
-    //   }
-    // ]
   }
   items.push(project)
+  if (config.projects[key].Servers !== '') {
+    merged = { ...merged,
+      ...config.projects[key].Servers
+    }
+  }
 }
 
-let tools = {
+let serversHead = {
   title: true,
-  name: 'Tools',
+  name: 'Servers',
   class: '',
   wrapper: {
     element: '',
     attributes: {}
   }
 }
-items.push(tools)
-for (let key in config.devTools) {
-  let tool = {
-    name: config.devTools[key].name,
-    url: config.devTools[key].url,
-    icon: config.devTools[key].icon,
-    target: '_blank'
+items.push(serversHead)
+for (let key in merged) {
+  let server = {
+    name: merged[key].name,
+    url: '/servers/' + merged[key].slug,
+    icon: merged[key].icon
   }
-  items.push(tool)
+  items.push(server)
 }
-
-
-// console.log(items)
 
 export default {
   items: items

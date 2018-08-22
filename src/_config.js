@@ -16,7 +16,15 @@ import config from '../configure.json'
 //   options[name] = require(dir)
 //   // console.log(config.projects[key].name)
 // }
-
+var servers = {}
+for (let key in config.projects) {
+  if (config.projects[key].Servers !== '') {
+    servers = { ...servers,
+      ...config.projects[key].Servers
+    }
+  }
+}
+console.log(servers)
 // console.log(options)
 
 export default {
@@ -25,5 +33,6 @@ export default {
   edit: config.edit,
   projectRoot: config.projectRoot,
   tld: config.tld,
-  config: config
+  config: config,
+  servers: servers
 }

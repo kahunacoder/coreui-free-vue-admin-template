@@ -6,7 +6,17 @@
       "language": "Javascript",
       "libraries": ["Quasar", "VueJS"],
       "Client": "Kahunacoder",
-      "Servers": ["ks.gs", "laradock"]
+      "Servers": [{
+          "name": "Staging",
+          "url": "s.kc.gs",
+          "slug": "staging"
+        },
+        {
+          "name": "Laradock",
+          "url": "localhost",
+          "slug": "laradock"
+        }
+      ]
     },
     {
       "name": "Wiki KauKau",
@@ -15,7 +25,17 @@
       "language": "PHP",
       "libraries": ["Laravel"],
       "Client": "Kahunacoder",
-      "Servers": ["ks.gs", "laradock"]
+      "Servers": [{
+          "name": "Staging",
+          "url": "s.kc.gs",
+          "slug": "staging"
+        },
+        {
+          "name": "Laradock",
+          "url": "localhost",
+          "slug": "laradock"
+        }
+      ]
     },
     {
       "name": "Portfolio",
@@ -24,7 +44,17 @@
       "language": "Ruby",
       "libraries": ["Jekyll"],
       "Client": "Kahunacoder",
-      "Servers": ["ks.gs", "laradock"]
+      "Servers": [{
+          "name": "Staging",
+          "url": "s.kc.gs",
+          "slug": "staging"
+        },
+        {
+          "name": "Laradock",
+          "url": "localhost",
+          "slug": "laradock"
+        }
+      ]
     },
     {
       "name": "Resume",
@@ -33,8 +63,22 @@
       "language": "Ruby",
       "libraries": ["Jekyll"],
       "Client": "Kahunacoder",
-      "Servers": ["ks.gs", "laradock"]
-
+      "Servers": [{
+          "name": "Staging",
+          "url": "s.kc.gs",
+          "slug": "staging"
+        },
+        {
+          "name": "Laradock",
+          "url": "localhost",
+          "slug": "laradock"
+        },
+        {
+          "name": "DSI",
+          "url": "dsi.gs",
+          "slug": "dsi"
+        }
+      ]
     },
     {
       "name": "Poi Dog Radio",
@@ -43,7 +87,17 @@
       "language": "PHP",
       "libraries": ["Laravel"],
       "Client": "Kahunacoder",
-      "Servers": ["ks.gs", "laradock"]
+      "Servers": [{
+          "name": "Staging",
+          "url": "s.kc.gs",
+          "slug": "staging"
+        },
+        {
+          "name": "Laradock",
+          "url": "localhost",
+          "slug": "laradock"
+        }
+      ]
     },
     {
       "name": "Projects Admin",
@@ -52,28 +106,17 @@
       "language": "Javascript",
       "libraries": ["Coreui", "VueJS"],
       "Client": "Kahunacoder",
-      "Servers": ["ks.gs", "laradock"]
-    }
-  ],
-  "devTools": [{
-      "name": "Cloud at Cost Panel",
-      "url": "https://panel.cloudatcost.com/index.php",
-      "icon": "icon-cloud"
-    },
-    {
-      "name": "Uptime Monitor",
-      "url": "https://my.pingdom.com/newchecks/checks",
-      "icon": "icon-monitor"
-    },
-    {
-      "name": "Github",
-      "url": "http://github.com/",
-      "icon": "fa fa-github"
-    },
-    {
-      "name": "BitBucket",
-      "url": "http://bitbucket.com/kahunacoder",
-      "icon": "fa fa-bitbucket"
+      "Servers": [{
+          "name": "Staging",
+          "url": "s.kc.gs",
+          "slug": "staging"
+        },
+        {
+          "name": "Laradock",
+          "url": "localhost",
+          "slug": "laradock"
+        }
+      ]
     }
   ],
   "projectRoot": "./",
