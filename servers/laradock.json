@@ -2,5 +2,34 @@
   "name": "Laradock",
   "url": "localhost",
   "slug": "laradock",
-  "icon": "http://projectsadmin.gts/img/tech-icons/docker.png"
+  "icon": "http://projectsadmin.gts/img/tech-icons/docker.png",
+  "type": "Docker",
+  "version": "16",
+  "software": [{
+      "name": "Nginx",
+      "version": "1"
+    },
+    {
+      "name": "MariaDB",
+      "version": "1"
+    }
+  ],
+  "containers": [{
+      "name": "laradock_ngnix",
+      "version": "1"
+    },
+    {
+      "name": "laradock_mariaDB",
+      "version": "2"
+    }
+  ],
+  "bookmarks": [{
+      "title": "Laradock Home Page",
+      "url": "http://laradock.com"
+    },
+    {
+      "title": "Docker Home Page",
+      "url": "http://docker.com"
+    }
+  ]
 }

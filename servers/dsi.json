@@ -2,5 +2,25 @@
   "name": "DSI",
   "url": "dsi.gs",
   "slug": "dsi",
-  "icon": ""
+  "icon": "http://projectsadmin.gts/img/tech-icons/ubuntu.png",
+  "type": "Ubuntu",
+  "version": "16.04.2-LTS",
+  "software": [{
+      "name": "Nginx",
+      "version": "1"
+    },
+    {
+      "name": "MariaDB",
+      "version": "1"
+    }
+  ],
+  "bookmarks": [{
+      "name": "",
+      "url": ""
+    },
+    {
+      "name": "",
+      "url": ""
+    }
+  ]
 }

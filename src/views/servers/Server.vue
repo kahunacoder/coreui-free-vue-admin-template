@@ -5,12 +5,14 @@
         <b-card>
           <template slot="header">
             <img
-              :src="'http://' + server.url + '/favicon.ico'"
+              :src="server.icon"
               class="img-icon"
               @error="imageLoadError"
               />
             {{ server.name }}
+            is a {{ server.type }} server that has <b-badge variant="primary">{{server.badge}}</b-badge> projects running on it.
           </template>
+
           <b-list-group>
 
             <b-list-group-item>
@@ -63,7 +65,11 @@
               <template slot="header">
                 Server Bookmarks
               </template>
-                Here
+              <b-list-group v-for="bookmark in server.bookmarks" :key="bookmark.url">
+                <b-list-group-item>
+                  Title: {{bookmark.title}} URL: {{bookmark.url}}
+                </b-list-group-item>
+              </b-list-group>
               </b-card>
             </b-tab>
             <b-tab>

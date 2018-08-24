@@ -3,7 +3,6 @@ import config from '../configure.json'
 // console.log(config)
 
 var projects = []
-var badges = []
 for (let key in config.projects) {
   let slug = config.projects[key]
   let project = require('../projects/' + slug + '.json')
@@ -25,39 +24,6 @@ var mergedServers = []
 for (let key in projects) {
   if (projects[key].Servers !== '') {
     mergedServers = arrayUnique(mergedServers.concat(projects[key].Servers))
-    projects[key].Servers.forEach(function (element) {
-      badges.push(element)
-    })
-  }
-}
-
-function foo(badges) {
-  var a = [],
-    b = [],
-    prev;
-
-  badges.sort();
-  for (var i = 0; i < badges.length; i++) {
-    if (badges[i] !== prev) {
-      a.push(badges[i]);
-      b.push(1);
-    } else {
-      b[b.length - 1]++;
-    }
-    prev = badges[i];
-  }
-
-  return [a, b];
-}
-var result = foo(badges);
-// console.log(result)
-
-var keys = result[0];
-var values = result[1];
-for (var i = 0; i < values.length; i++) {
-  var obj = {};
-  for (var j = 0; j < keys.length; j++) {
-    obj[keys[j]] = values[j]
   }
 }
 
@@ -65,16 +31,15 @@ var servers = []
 for (let key in mergedServers) {
   let slug = mergedServers[key]
   let server = require('../servers/' + slug + '.json')
-  // server.badge = 6
-  servers.push(server)
-}
-
-for (let key in servers) {
-  let slug = servers[key].slug
-  if (obj.hasOwnProperty(slug)) {
-    servers[key].badge = obj[slug]
-    // badges[servers[key].slug] = +1
+  var pArray = []
+  for (let key1 in projects) {
+    if (projects[key1].Servers.includes(slug)) {
+      pArray.push(projects[key1].slug)
+    }
   }
+  server.badge = pArray.length
+  server.projects = pArray
+  servers.push(server)
 }
 // console.log(servers)
 

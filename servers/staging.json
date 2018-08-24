@@ -2,5 +2,26 @@
   "name": "Staging",
   "url": "s.kc.gs",
   "slug": "staging",
-  "icon": "http://projectsadmin.gts/img/brand/me_with_hat_brown_and_background.png"
+  "icon": "http://projectsadmin.gts/img/tech-icons/ubuntu.png",
+  "type": "Ubuntu",
+  "version": "16.04.2-LTS",
+  "software": [{
+      "name": "Nginx",
+      "version": "1"
+    },
+    {
+      "name": "MariaDB",
+      "version": "1"
+    }
+  ],
+  "bookmarks": [{
+      "name": "",
+      "url": ""
+    },
+    {
+      "name": "",
+      "url": ""
+    }
+  ]
+
 }
