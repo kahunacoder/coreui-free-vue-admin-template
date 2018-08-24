@@ -26,11 +26,11 @@
 <script>
 import config from '@/_config'
 export default {
-  name: 'Projects',
+  name: 'Servers',
   props: {
     caption: {
       type: String,
-      default: 'Projects'
+      default: 'Servers'
     },
     hover: {
       type: Boolean,
@@ -63,14 +63,12 @@ export default {
       // "log": "vscode://file/Users/gts/Documents/Projects/Server/wikikaukau/logs/wikikaukau_error.log"
 
       // items: config.projects.filter((user) => user.id < 42),
-      items: config.projects,
+      items: config.servers,
       fields: [
         {key: 'name'},
         {key: 'slug'},
-        {key: 'docRoot'},
-        {key: 'icon'},
-        {key: 'adminUrl'},
-        {key: 'status'}// ,
+        // {key: 'icon'},
+        // {key: 'status'}// ,
         // {key: 'editor'},
         // {key: 'log'}
       ],
@@ -92,7 +90,7 @@ export default {
       return items.length
     },
     projectLink (slug) {
-      return `projects/${slug}`
+      return `servers/${slug}`
     },
     rowClicked (item) {
       const projectLink = this.projectLink(item.slug)

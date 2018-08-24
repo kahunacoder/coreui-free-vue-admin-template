@@ -270,7 +270,7 @@
               <template slot="header">
                 README.md
               </template>
-              <vue-markdown :source="readme"># README.md</vue-markdown>
+              <vue-markdown># README.md</vue-markdown>
               </b-card>
             </b-tab>
             <b-tab>
@@ -312,6 +312,7 @@ import VueMarkdown from 'vue-markdown'
 // term.open(document.getElementById('terminal'));
 // // term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ')
 // term.fit();
+
 export default {
   name: 'Project',
   components: {
@@ -325,14 +326,15 @@ export default {
   },
   computed: {
     project: function () {
-      let slug = this.$route.params.slug
-      let project = require('../../../projects/' + slug + '.json')
-      return project
-    },
-    readme: function () {
-      return this.project.root + 'README.md'
+      var needle = this.$route.params.slug; // what to look for
+      var matched = {}
+      for (let key in config.projects) {
+        if ( config.projects[key].slug === needle) {
+          matched = config.projects[key]
+        }
+      }
+      return matched
     }
-
   },
   data () {
     return {
@@ -360,9 +362,6 @@ export default {
     goBack() {
       this.$router.go(-1)
       // this.$router.replace({path: '/users'})
-    },
-    runSpeedtestio() {
-      '/Users/gts/Documents/Projects/Server/sitespeed.io/web/docker-compose run sitespeed.io http://' + this.$route.params.slug + this.project.tld + ' --graphite.host=graphite'
     },
     getBadge (status) {
       return status === 'live' ? 'success'

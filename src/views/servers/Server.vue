@@ -6,7 +6,9 @@
           <template slot="header">
             <img
               :src="'http://' + server.url + '/favicon.ico'"
-              class="img-icon" />
+              class="img-icon"
+              @error="imageLoadError"
+              />
             {{ server.name }}
           </template>
           <b-list-group>
@@ -114,12 +116,17 @@ export default {
         'README.md',
         'Server Bookmarks',
         'Terminal'
-      ]
+      ],
+      config: config
     }
   },
   methods: {
     goBack() {
       this.$router.go(-1)
+      // this.$router.replace({path: '/users'})
+    },
+    imageLoadError(event) {
+      event.target.src = 'img/tech-icons/cloudatcost.png'
       // this.$router.replace({path: '/users'})
     },
     getBadge (status) {

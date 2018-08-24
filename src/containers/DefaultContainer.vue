@@ -31,7 +31,7 @@
       <AppSidebar fixed>
         <SidebarHeader/>
         <SidebarForm/>
-        <SidebarNav :navItems="nav"></SidebarNav>
+        <DefaultSidebarNav :navItems="nav"></DefaultSidebarNav>
         <SidebarFooter/>
         <SidebarMinimizer/>
       </AppSidebar>
@@ -62,9 +62,10 @@
 
 <script>
 import nav from '@/_nav'
-import { Header as AppHeader, SidebarToggler, Sidebar as AppSidebar, SidebarFooter, SidebarForm, SidebarHeader, SidebarMinimizer, SidebarNav, Aside as AppAside, AsideToggler, Footer as TheFooter, Breadcrumb } from '@coreui/vue'
+import { Header as AppHeader, SidebarToggler, Sidebar as AppSidebar, SidebarFooter, SidebarForm, SidebarHeader, SidebarMinimizer, Aside as AppAside, AsideToggler, Footer as TheFooter, Breadcrumb } from '@coreui/vue'
 import DefaultAside from './DefaultAside'
 import DefaultHeaderDropdownAccnt from './DefaultHeaderDropdownAccnt'
+import DefaultSidebarNav from './DefaultSidebarNav'
 
 export default {
   name: 'full',
@@ -77,11 +78,12 @@ export default {
     Breadcrumb,
     DefaultAside,
     DefaultHeaderDropdownAccnt,
+    // SidebarNav,
     SidebarForm,
     SidebarFooter,
     SidebarToggler,
     SidebarHeader,
-    SidebarNav,
+    DefaultSidebarNav,
     SidebarMinimizer
   },
   data () {
