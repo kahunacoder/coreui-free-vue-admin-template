@@ -8,8 +8,24 @@
       </b-link>
       <SidebarToggler class="d-md-down-none" display="lg" />
       <b-navbar-nav class="d-md-down-none">
-        <b-nav-item class="px-3" to="/dashboard">Dashboard</b-nav-item>
-        <b-nav-item class="px-3">Settings</b-nav-item>
+        <b-nav-item class="px-3">
+          <i class="fa fa-cogs"></i>
+        </b-nav-item>
+        <b-nav-item class="px-3" to="/dashboard">
+        <i class="fa fa-tachometer"></i>
+        </b-nav-item>
+        <b-nav-item class="px-3" to="/projects">
+          <i class="fa fa-sliders"></i>
+          <b-badge pill variant="danger">{{config.projects.length}}</b-badge>
+        </b-nav-item>
+        <b-nav-item class="px-3" to="/servers">
+          <i class="fa fa-server"></i>
+          <b-badge pill variant="danger">{{config.servers.length}}</b-badge>
+        </b-nav-item>
+        <b-nav-item class="px-3" to="/clients">
+          <i class="fa fa-users"></i>
+          <b-badge pill variant="danger">{{config.servers.length}}</b-badge>
+        </b-nav-item>
       </b-navbar-nav>
       <b-navbar-nav class="ml-auto">
         <b-nav-item class="d-md-down-none">
@@ -62,6 +78,7 @@
 
 <script>
 import nav from '@/_nav'
+import config from '@/_config'
 import { Header as AppHeader, SidebarToggler, Sidebar as AppSidebar, SidebarFooter, SidebarForm, SidebarHeader, SidebarMinimizer, Aside as AppAside, AsideToggler, Footer as TheFooter, Breadcrumb } from '@coreui/vue'
 import DefaultAside from './DefaultAside'
 import DefaultHeaderDropdownAccnt from './DefaultHeaderDropdownAccnt'
@@ -88,7 +105,8 @@ export default {
   },
   data () {
     return {
-      nav: nav.items
+      nav: nav.items,
+      config: config
     }
   },
   computed: {
