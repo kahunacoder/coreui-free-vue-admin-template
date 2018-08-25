@@ -26,11 +26,11 @@
 <script>
 import config from '@/_config'
 export default {
-  name: 'Technologies',
+  name: 'Clients',
   props: {
     caption: {
       type: String,
-      default: 'Technologies'
+      default: 'Clients'
     },
     hover: {
       type: Boolean,
@@ -63,13 +63,14 @@ export default {
       // "log": "vscode://file/Users/gts/Documents/Projects/Server/wikikaukau/logs/wikikaukau_error.log"
 
       // items: config.projects.filter((user) => user.id < 42),
-      items: config.technologies,
+      items: config.clients,
       fields: [
         {key: 'name'},
-        {key: 'slug'},
-        {key: 'type'},
-        // {key: 'editor'},
-        // {key: 'log'}
+        {key: 'site'},
+        {key: 'icon'},
+        {key: 'email'},
+        {key: 'phone'},
+        {key: 'status'}
       ],
       currentPage: 1,
       perPage: 5,
@@ -89,7 +90,7 @@ export default {
       return items.length
     },
     projectLink (slug) {
-      return `technologies/${slug}`
+      return `clients/${slug}`
     },
     rowClicked (item) {
       const projectLink = this.projectLink(item.slug)

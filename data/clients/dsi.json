@@ -1,0 +1,30 @@
+{
+  "name": "Data Space Industires",
+  "slug": "dsi",
+  "url": "http://dsi.gs",
+  "icon": "http://projectsadmin.gts/img/avatars/3.jpg",
+  "street": "",
+  "street1": "",
+  "city": "",
+  "state": "",
+  "zip": "",
+  "email": "",
+  "phone": "",
+  "mobile": "",
+  "fax": "",
+  "contacts": [{
+      "name": "",
+      "email": "",
+      "phone": "",
+      "mobile": "",
+      "fax": ""
+    },
+    {
+      "name": "",
+      "email": "",
+      "phone": "",
+      "mobile": "",
+      "fax": ""
+    }
+  ]
+}

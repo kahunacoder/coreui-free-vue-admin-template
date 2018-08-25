@@ -32,7 +32,7 @@
                 <figure v-if="project.url !== ''"  title="Live Site" class="figure d-inline-block">
                   <a :href="project.url" :target="$route.params.slug">
                     <img
-                    :src="project.url + '/favicon.ico'"
+                    :src="project.icon"
                     class="figure-img img-fluid rounded" />
                     <figcaption class="figure-caption text-center">Live</figcaption>
                   </a>
@@ -40,7 +40,7 @@
                 <figure v-if="project.stagingUrl !== ''"  title="Staging Site" class="figure d-inline-block">
                   <a :href="project.stagingUrl" :target="$route.params.slug">
                     <img
-                      :src="project.stagingUrl + '/' + project.icon"
+                      :src="project.icon"
                       class="figure-img img-fluid rounded" />
                     <figcaption class="figure-caption text-center">Staging</figcaption>
                   </a>
@@ -48,7 +48,7 @@
                 <figure title="Dev Site" class="figure d-inline-block">
                   <a :href="'http://' + $route.params.slug + '.' + project.tld" :target="$route.params.slug">
                     <img
-                      :src="'http://' + $route.params.slug + '.' + project.tld + '/' + project.icon"
+                      :src="project.icon"
                       class="figure-img img-fluid rounded" />
                     <figcaption class="figure-caption text-center">Dev</figcaption>
                   </a>

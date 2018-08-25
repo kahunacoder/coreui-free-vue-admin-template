@@ -5,7 +5,7 @@ import config from '../configure.json'
 var projects = []
 for (let key in config.projects) {
   let slug = config.projects[key]
-  let project = require('../projects/' + slug + '.json')
+  let project = require('../data/projects/' + slug + '.json')
   projects.push(project)
 }
 
@@ -22,18 +22,18 @@ function arrayUnique(array) {
 
 var mergedServers = []
 for (let key in projects) {
-  if (projects[key].Servers !== '') {
-    mergedServers = arrayUnique(mergedServers.concat(projects[key].Servers))
+  if (projects[key].servers !== '') {
+    mergedServers = arrayUnique(mergedServers.concat(projects[key].servers))
   }
 }
 
 var servers = []
 for (let key in mergedServers) {
   let slug = mergedServers[key]
-  let server = require('../servers/' + slug + '.json')
+  let server = require('../data/servers/' + slug + '.json')
   var pArray = []
   for (let key1 in projects) {
-    if (projects[key1].Servers.includes(slug)) {
+    if (projects[key1].servers.includes(slug)) {
       pArray.push(projects[key1].slug)
     }
   }
@@ -41,7 +41,60 @@ for (let key in mergedServers) {
   server.projects = pArray
   servers.push(server)
 }
-// console.log(servers)
+
+var clients = []
+var mergedClients = []
+for (let key in projects) {
+  if (projects[key].client !== '') {
+    mergedClients = arrayUnique(mergedClients.concat(projects[key].client))
+  }
+}
+// console.log(mergedClients)
+
+for (let key in mergedClients) {
+  let slug = mergedClients[key]
+  let client = require('../data/clients/' + slug + '.json')
+  var cArray = []
+  for (let key1 in projects) {
+    if (projects[key1].client === slug) {
+      cArray.push(projects[key1].slug)
+    }
+  }
+  client.badge = cArray.length
+  client.projects = pArray
+  clients.push(client)
+}
+// console.log(clients)
+
+var technologies = []
+var mergedTechnologies = []
+for (let key in projects) {
+  if (projects[key].language !== '') {
+    mergedTechnologies = arrayUnique(mergedTechnologies.concat(projects[key].language))
+  }
+  if (projects[key].libraries !== '') {
+    mergedTechnologies = arrayUnique(mergedTechnologies.concat(projects[key].libraries))
+  }
+}
+// console.log(mergedTechnologies)
+
+for (let key in mergedTechnologies) {
+  let slug = mergedTechnologies[key]
+  let technology = require('../data/technologies/' + slug + '.json')
+  var tArray = []
+  for (let key1 in projects) {
+    if (projects[key1].language === slug) {
+      tArray.push(projects[key1].slug)
+    }
+    if (projects[key1].libraries.includes(slug)) {
+      tArray.push(projects[key1].slug)
+    }
+  }
+  technology.badge = tArray.length
+  technology.projects = tArray
+  technologies.push(technology)
+}
+// console.log(technologies)
 
 export default {
   projects: projects,
@@ -50,5 +103,7 @@ export default {
   projectRoot: config.projectRoot,
   tld: config.tld,
   config: config,
-  servers: servers
+  servers: servers,
+  clients: clients,
+  technologies: technologies
 }

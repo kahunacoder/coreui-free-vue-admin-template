@@ -73,6 +73,52 @@ for (let key in config.servers) {
   items.push(server)
 }
 
+let clientsHead = {
+  title: true,
+  name: 'Clients',
+  class: '',
+  wrapper: {
+    element: '',
+    attributes: {}
+  }
+}
+items.push(clientsHead)
+for (let key in config.clients) {
+  let client = {
+    name: config.clients[key].name,
+    url: '/clients/' + config.clients[key].slug,
+    icon: config.clients[key].icon,
+    badge: {
+      variant: 'primary',
+      text: config.clients[key].badge
+    }
+  }
+  items.push(client)
+}
+
+let technologiesHead = {
+  title: true,
+  name: 'Technologies',
+  class: '',
+  wrapper: {
+    element: '',
+    attributes: {}
+  }
+}
+items.push(technologiesHead)
+for (let key in config.technologies) {
+  let technology = {
+    name: config.technologies[key].name,
+    url: '/technologies/' + config.technologies[key].slug,
+    icon: config.technologies[key].icon,
+    badge: {
+      variant: 'primary',
+      text: config.technologies[key].badge
+    }
+  }
+  items.push(technology)
+}
+
 export default {
   items: items
 }

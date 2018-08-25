@@ -231,7 +231,7 @@
       <b-col>
         <b-card>
           <template slot="header">
-            {{ tech }}
+            {{ tech.name }}
           </template>
           <b-tabs v-model="tabIndex[0]">
             <b-tab active>
@@ -242,9 +242,7 @@
               <template slot="header">
                 Speedtestio
                 <div class="card-header-actions">
-                  <b-link title="run speedtest.io" href="#" class="card-header-action btn-close" v-on:click="runSpeedtestio">
-                    <i class="icon-control-play"></i>
-                  </b-link>
+
                 </div>
               </template>
 
@@ -291,7 +289,16 @@ export default {
   },
   computed: {
     tech: function () {
-      return this.$route.params.tech
+      var needle = this.$route.params.tech; // what to look for
+      // console.log(needle)
+      var matched = {}
+      for (let key in config.technologies) {
+        if ( config.technologies[key].slug === needle) {
+          matched = config.technologies[key]
+        }
+      }
+      // console.log(matched)
+      return matched
     }
 
   },

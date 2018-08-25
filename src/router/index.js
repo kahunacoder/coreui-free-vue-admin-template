@@ -92,10 +92,10 @@ const Dropdowns = () =>
 //   import ('@/views/pages/Register')
 
 // Users
-const Users = () =>
-  import ('@/views/users/Users')
-const User = () =>
-  import ('@/views/users/User')
+const Clients = () =>
+  import ('@/views/clients/Clients')
+const Client = () =>
+  import ('@/views/clients/Client')
 
 // Projects
 const Projects = () =>
@@ -234,9 +234,9 @@ export default new Router({
         ]
       },
       {
-        path: 'users',
+        path: 'clients',
         meta: {
-          label: 'Users'
+          label: 'Clients'
         },
         component: {
           render(c) {
@@ -245,15 +245,15 @@ export default new Router({
         },
         children: [{
             path: '',
-            component: Users,
+            component: Clients,
           },
           {
-            path: ':id',
+            path: ':slug',
             meta: {
-              label: 'User Details'
+              label: 'Client Details'
             },
-            name: 'User',
-            component: User,
+            name: 'Client',
+            component: Client,
           },
         ]
       },
