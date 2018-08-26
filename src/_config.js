@@ -9,6 +9,13 @@ for (let key in config.projects) {
   projects.push(project)
 }
 
+var tools = []
+for (let key in config.tools) {
+  let slug = config.tools[key]
+  let tool = require('../data/tools/' + slug + '.json')
+  tools.push(tool)
+}
+
 function arrayUnique(array) {
   var a = array.concat();
   for (var i = 0; i < a.length; ++i) {
@@ -105,5 +112,6 @@ export default {
   config: config,
   servers: servers,
   clients: clients,
-  technologies: technologies
+  technologies: technologies,
+  tools: tools
 }

@@ -65,9 +65,15 @@
               <template slot="header">
                 Server Bookmarks
               </template>
-              <b-list-group v-for="bookmark in server.bookmarks" :key="bookmark.url">
+              <b-list-group v-for="bookmark in server.bookmarks" :key="bookmark.guid">
                 <b-list-group-item>
-                  Title: {{bookmark.title}} URL: {{bookmark.url}}
+                  <img
+                    :src="bookmark.iconuri"
+                    class="img-icon" />
+                  <a :href="bookmark.uri">
+                    {{bookmark.title}}
+                  </a>
+                  <p>{{bookmark.description}}</p>
                 </b-list-group-item>
               </b-list-group>
               </b-card>

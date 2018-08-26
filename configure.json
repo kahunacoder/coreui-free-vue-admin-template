@@ -1,8 +1,9 @@
 {
   "projects": ["soluntide", "wikikaukau", "portfolio", "resume", "poidogradio", "projectsadmin"],
+  "tools": ["oc", "iconmoon"],
   "projectRoot": "./",
   "tld": "gts",
   "projectsAdminConf": "/Users/gts/Documents/Projects/Server/projectsadmin/web/configure.json",
   "projectsConf": "/Users/gts/Documents/Projects/Server/projectsadmin/web/projects/",
-  "edit": "vscode://file/Users/gts/Documents/Projects/Server/dockerhome/dockerhome.code-workspace"
+  "edit": "vscode://file/Users/gts/Documents/Projects/Server/dockerhome/"
 }

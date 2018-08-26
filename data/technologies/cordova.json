@@ -1,0 +1,9 @@
+{
+  "name": "Cordova",
+  "slug": "cordova",
+  "type": "web",
+  "url": "https://cordova.apache.org/",
+  "icon": "http://projectsadmin.gts/img/tech-icons/cordova.png",
+  "description": "Mobile apps with HTML, CSS & JS<br>Target multiple platforms with one code base",
+  "bookmarks": []
+}

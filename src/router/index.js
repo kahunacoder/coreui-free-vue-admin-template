@@ -113,6 +113,12 @@ const Servers = () =>
 const Server = () =>
   import ('@/views/servers/Server')
 
+// Tools
+const Tools = () =>
+  import ('@/views/tools/Tools')
+const Tool = () =>
+  import ('@/views/tools/Tool')
+
 Vue.use(Router)
 
 export default new Router({
@@ -230,6 +236,30 @@ export default new Router({
             },
             name: 'Technology',
             component: Technology,
+          },
+        ]
+      },
+      {
+        path: 'tools',
+        meta: {
+          label: 'Tools'
+        },
+        component: {
+          render(c) {
+            return c('router-view')
+          }
+        },
+        children: [{
+            path: '',
+            component: Tools,
+          },
+          {
+            path: ':slug',
+            meta: {
+              label: 'Tool Details'
+            },
+            name: 'Tool',
+            component: Tool,
           },
         ]
       },

@@ -13,8 +13,8 @@
   "mobile": "",
   "fax": "",
   "contacts": [{
-      "name": "",
-      "email": "",
+      "name": "Roger Jacobs",
+      "email": "raj@dsi.gs",
       "phone": "",
       "mobile": "",
       "fax": ""
@@ -26,5 +26,11 @@
       "mobile": "",
       "fax": ""
     }
-  ]
+  ],
+  "bookmarks": [{
+    "title": "Roger Jacobs",
+    "dateAdded": 1505576396419000,
+    "iconuri": "https://www.google.com/a/kahunacoder.com/images/favicon.ico",
+    "uri": "https://mail.google.com/mail/u/0/#label/Clients%2FDSI%2FStaff%2FRoger"
+  }]
 }

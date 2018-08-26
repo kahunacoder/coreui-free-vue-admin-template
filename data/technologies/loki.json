@@ -1,0 +1,10 @@
+{
+  "name": "Loki JS",
+  "slug": "loki",
+  "type": "web",
+  "tags": ["javascript", "database", "node", "cordova", "browser"],
+  "url": "http://lokijs.org",
+  "icon": "http://projectsadmin.gts/img/tech-icons/loki.png",
+  "description": "A fast, in-memory document-oriented datastore for node.js, browser and cordova.",
+  "bookmarks": []
+}

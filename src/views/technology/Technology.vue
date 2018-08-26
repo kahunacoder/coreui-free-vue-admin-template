@@ -250,13 +250,23 @@
             </b-tab>
             <b-tab>
               <template slot="title">
-                <i class="icon-wrench"></i> {{tabs[1]}}
+                <i class="fa fa-bookmark"></i> {{tabs[1]}}
               </template>
               <b-card>
               <template slot="header">
-                Webdash
+                Technology Bookmarks
               </template>
-
+              <b-list-group v-for="bookmark in tech.bookmarks" :key="bookmark.uri">
+                <b-list-group-item>
+                  <img
+                    :src="bookmark.iconuri"
+                    class="img-icon" />
+                  <a :href="bookmark.uri">
+                    {{bookmark.title}}
+                  </a>
+                  <p>{{bookmark.description}}</p>
+                </b-list-group-item>
+              </b-list-group>
               </b-card>
             </b-tab>
             <b-tab>

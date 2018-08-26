@@ -18,10 +18,10 @@
         </b-nav-item>
       </b-navbar-nav>
       <b-navbar-nav class="ml-auto">
-        <b-nav-item-dropdown>
+        <b-nav-item-dropdown right no-caret>
           <template slot="button-content">
             <slot name="header">
-              <i class="fa fa-sliders"></i>
+              <i class="fa fa-globe"></i>
               <b-badge pill variant="danger">{{config.projects.length}}</b-badge>
             </slot>
           </template>
@@ -41,7 +41,7 @@
           </slot>
         </b-nav-item-dropdown>
 
-        <b-nav-item-dropdown>
+        <b-nav-item-dropdown right no-caret>
           <template slot="button-content">
             <slot name="header">
               <i class="fa fa-server"></i>
@@ -64,7 +64,7 @@
           </slot>
         </b-nav-item-dropdown>
 
-        <b-nav-item-dropdown>
+        <b-nav-item-dropdown right no-caret>
           <template slot="button-content">
             <slot name="header">
               <i class="fa fa-users"></i>
@@ -87,10 +87,10 @@
           </slot>
         </b-nav-item-dropdown>
 
-        <b-nav-item-dropdown>
+        <b-nav-item-dropdown right no-caret>
           <template slot="button-content">
             <slot name="header">
-              <i class="fa fa-wrench"></i>
+              <i class="fa fa-microchip"></i>
               <b-badge pill variant="danger">{{config.technologies.length}}</b-badge>
             </slot>
           </template>
@@ -103,6 +103,29 @@
                       :src="technology.icon"
                       class="img-icon" />
                     {{technology.name}}
+                </b-list-group-item>
+
+               </b-list-group>
+            </div>
+          </slot>
+        </b-nav-item-dropdown>
+
+        <b-nav-item-dropdown right no-caret>
+          <template slot="button-content">
+            <slot name="header">
+              <i class="fa fa-wrench"></i>
+              <b-badge pill variant="danger">{{config.tools.length}}</b-badge>
+            </slot>
+          </template>
+          <slot name="dropdown">
+            <div>
+              <b-list-group v-for="tool in config.tools" :key="tool.slug">
+
+                <b-list-group-item :to="'/tools/' + tool.slug">
+                    <img
+                      :src="tool.icon"
+                      class="img-icon" />
+                    {{tool.name}}
                 </b-list-group-item>
 
                </b-list-group>

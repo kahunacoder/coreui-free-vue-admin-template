@@ -119,6 +119,25 @@ for (let key in config.technologies) {
   items.push(technology)
 }
 
+let toolsHead = {
+  title: true,
+  name: 'Tools',
+  class: '',
+  wrapper: {
+    element: '',
+    attributes: {}
+  }
+}
+items.push(toolsHead)
+for (let key in config.tools) {
+  let tool = {
+    name: config.tools[key].name,
+    url: '/tools/' + config.tools[key].slug,
+    icon: config.tools[key].icon,
+  }
+  items.push(tool)
+}
+
 export default {
   items: items
 }

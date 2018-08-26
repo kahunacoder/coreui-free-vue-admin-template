@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-row>
+    <!-- <b-row>
       <b-col>
         <b-card>
           <template slot="header">
@@ -9,13 +9,13 @@
 
             <div class="card-header-actions">
 
-              <b-link :title="project.language" :href="'#/technologies/' + project.language" class="card-header-action btn-close">
+              <b-link :title="project.language" :href="'/stacks/' + project.language" class="card-header-action btn-close">
                 <img
                   :src="'img/tech-icons/' + project.language + '.png'"
                   class="img-icon" />
               </b-link>
               <span v-for="(library, index) in project.libraries" :key="`library-${index}`">
-                <b-link :title="library" :href="'#/technologies/' + library" class="card-header-action btn-close">
+                <b-link :title="library" :href="'/stacks/' + library" class="card-header-action btn-close">
                   <img
                     :src="'img/tech-icons/' + library + '.png'"
                     class="img-icon" />
@@ -32,7 +32,7 @@
                 <figure v-if="project.url !== ''"  title="Live Site" class="figure d-inline-block">
                   <a :href="project.url" :target="$route.params.slug">
                     <img
-                    :src="project.icon"
+                    :src="project.url + '/favicon.ico'"
                     class="figure-img img-fluid rounded" />
                     <figcaption class="figure-caption text-center">Live</figcaption>
                   </a>
@@ -40,7 +40,7 @@
                 <figure v-if="project.stagingUrl !== ''"  title="Staging Site" class="figure d-inline-block">
                   <a :href="project.stagingUrl" :target="$route.params.slug">
                     <img
-                      :src="project.icon"
+                      :src="project.stagingUrl + '/' + project.icon"
                       class="figure-img img-fluid rounded" />
                     <figcaption class="figure-caption text-center">Staging</figcaption>
                   </a>
@@ -48,7 +48,7 @@
                 <figure title="Dev Site" class="figure d-inline-block">
                   <a :href="'http://' + $route.params.slug + '.' + project.tld" :target="$route.params.slug">
                     <img
-                      :src="project.icon"
+                      :src="'http://' + $route.params.slug + '.' + project.tld + '/' + project.icon"
                       class="figure-img img-fluid rounded" />
                     <figcaption class="figure-caption text-center">Dev</figcaption>
                   </a>
@@ -58,7 +58,7 @@
             <b-list-group-item>
               <div class="d-flex w-100 justify-content-between">
                 <h2 class="mb-1">Editors</h2>
-                <i class="fa fa-code" style="font-weight:bold;"></i>
+                <i class="fa fa-code"></i>
               </div>
               <p>
                 <span v-for="(editor, index) in project.editors" :key="`editor-${index}`">
@@ -85,11 +85,11 @@
             <b-list-group-item>
               <div class="d-flex w-100 justify-content-between">
                 <h2 class="mb-1">Data</h2>
-                <i class="fa fa-database"></i>
+                <i class="fa fa-life-ring"></i>
               </div>
               <p>
                 <figure title="Open Sequel Pro"  class="figure d-inline-block">
-                  <a :href="'telnet:///usr/bin/open ' + project.root + 'docker.spf'">
+                  <a :href="project.log">
                     <img
                       src="img/tech-icons/sequel-pro.png"
                       class="figure-img img-fluid rounded" />
@@ -109,7 +109,7 @@
             <b-list-group-item>
               <div class="d-flex w-100 justify-content-between">
                 <h2 class="mb-1">Logs</h2>
-                <i class="fa fa-heartbeat"></i>
+                <i class="fa fa-life-ring"></i>
               </div>
                 <figure title="View Error Logs" class="figure d-inline-block">
                   <a :href="'telnet:///usr/bin/open ' + project.log">
@@ -202,7 +202,7 @@
             <b-list-group-item>
               <div class="d-flex w-100 justify-content-between">
                 <h2 class="mb-1">Performance</h2>
-                <i class="fa fa-tachometer"></i>
+                <i class="icon-speedometer"></i>
               </div>
                 <figure title="Open sitespeed.io for this project" class="figure d-inline-block">
                   <a :href="'http://127.0.0.1:3000/d/000000045/site-summary?orgId=1&var-base=sitespeed_io&var-path=default&var-group='+project.speedio+'&var-browser=chrome&var-connectivity=native&var-function=median'" target="speedtestio">
@@ -220,57 +220,32 @@
                     <figcaption class="figure-caption text-center">WebDash</figcaption>
                   </a>
                 </figure>
-                <figure title="Open Pingdom" class="figure d-inline-block">
-                  <a :href="'https://my.pingdom.com/newchecks/checks'" target="pingdom">
-                    <img
-                      src="img/tech-icons/pingdom.png"
-                      class="figure-img img-fluid rounded" />
-                    <figcaption class="figure-caption text-center">Uptime</figcaption>
-                  </a>
-                </figure>
-            </b-list-group-item>
-
-            <b-list-group-item>
-              <div class="d-flex w-100 justify-content-between">
-                <h2 class="mb-1">Servers</h2>
-                <i class="fa fa-server"></i>
-              </div>
-                <figure title="Open Cloud at Cost" class="figure d-inline-block">
-                  <a href="https://panel.cloudatcost.com/index.php" target="cloudatcost">
-                    <img
-                      src="img/tech-icons/cloudatcost.png"
-                      class="figure-img img-fluid rounded" />
-                    <figcaption class="figure-caption text-center">Cloud at Cost</figcaption>
-                  </a>
-                </figure>
-                <figure title="Open Docker" class="figure d-inline-block">
-                  <a :href="'http://localhost:9000/#/dashboard'" target="docker">
-                    <img
-                      src="img/tech-icons/docker.png"
-                      class="figure-img img-fluid rounded" />
-                    <figcaption class="figure-caption text-center">Docker</figcaption>
-                  </a>
-                </figure>
             </b-list-group-item>
 
           </b-list-group>
         </b-card>
       </b-col>
-    </b-row>
+    </b-row> -->
 
     <b-row>
       <b-col>
         <b-card>
+          <template slot="header">
+            {{ tool.name }}
+          </template>
           <b-tabs v-model="tabIndex[0]">
             <b-tab active>
               <template slot="title">
-                <i class="fa fa-road"></i> {{tabs[0]}}
+                <i class="icon-speedometer"></i> {{tabs[0]}}
               </template>
               <b-card>
               <template slot="header">
-                README.md
+                Speedtestio
+                <div class="card-header-actions">
+
+                </div>
               </template>
-              <vue-markdown># README.md</vue-markdown>
+
               </b-card>
             </b-tab>
             <b-tab>
@@ -279,9 +254,9 @@
               </template>
               <b-card>
               <template slot="header">
-                Project Bookmarks
+                Tool Bookmarks
               </template>
-              <b-list-group v-for="bookmark in project.bookmarks" :key="bookmark.url">
+              <b-list-group v-for="bookmark in tool.bookmarks" :key="bookmark.uri">
                 <b-list-group-item>
                   <img
                     :src="bookmark.iconuri"
@@ -302,7 +277,7 @@
               <template slot="header">
                 Terminal
               </template>
-              <div id="terminal" style="width:100%;height:500px;"></div>
+
               </b-card>
             </b-tab>
           </b-tabs>
@@ -314,59 +289,39 @@
 
 <script>
 import config from '@/_config'
-import { Terminal } from 'xterm'
-import * as fit from 'xterm/lib/addons/fit/fit';
-Terminal.applyAddon(fit);
-import VueMarkdown from 'vue-markdown'
-// var term = new Terminal();
-// term.open(document.getElementById('terminal'));
-// // term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ')
-// term.fit();
-
 export default {
-  name: 'Project',
-  components: {
-    VueMarkdown
-  },
+  name: 'Tool',
   props: {
     caption: {
       type: String,
-      default: 'Project slug'
+      default: 'Tool'
     },
   },
   computed: {
-    project: function () {
+    tool: function () {
       var needle = this.$route.params.slug; // what to look for
+      // console.log(needle)
       var matched = {}
-      for (let key in config.projects) {
-        if ( config.projects[key].slug === needle) {
-          matched = config.projects[key]
+      for (let key in config.tools) {
+        if ( config.tools[key].slug === needle) {
+          matched = config.tools[key]
         }
       }
+      // console.log(matched)
       return matched
     }
+
   },
   data () {
     return {
       tabIndex: [0, 0],
       tabs: [
-        'README.md',
-        'Project Bookmarks',
+        'Speedtestio',
+        'Webdash',
         'Terminal'
       ],
-      config: config,
-      fields: [
-        {key: 'key'},
-        {key: 'value'},
-      ],
-      webdash: '3456'
+      config: config
     }
-  },
-  mounted: () => {
-    let term = new Terminal();
-    term.open(document.getElementById('terminal'));
-    term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ')
-    // term.fit();
   },
   methods: {
     goBack() {
@@ -383,7 +338,6 @@ export default {
 }
 </script>
 <style scoped lang="css">
-@import "../../../node_modules/xterm/dist/xterm.css";
 .figure {
   margin-bottom: 4px;
   margin-right: 5%;
