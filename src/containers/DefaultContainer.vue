@@ -22,7 +22,7 @@
           <template slot="button-content">
             <slot name="header">
               <i class="fa fa-globe"></i>
-              <b-badge pill variant="danger">{{config.projects.length}}</b-badge>
+              <b-badge pill variant="secondary">{{config.projects.length}}</b-badge>
             </slot>
           </template>
           <slot name="dropdown">
@@ -45,7 +45,7 @@
           <template slot="button-content">
             <slot name="header">
               <i class="fa fa-server"></i>
-              <b-badge pill variant="danger">{{config.servers.length}}</b-badge>
+              <b-badge pill variant="secondary">{{config.servers.length}}</b-badge>
             </slot>
           </template>
           <slot name="dropdown">
@@ -68,7 +68,7 @@
           <template slot="button-content">
             <slot name="header">
               <i class="fa fa-users"></i>
-              <b-badge pill variant="danger">{{config.clients.length}}</b-badge>
+              <b-badge pill variant="secondary">{{config.clients.length}}</b-badge>
             </slot>
           </template>
           <slot name="dropdown">
@@ -91,7 +91,7 @@
           <template slot="button-content">
             <slot name="header">
               <i class="fa fa-microchip"></i>
-              <b-badge pill variant="danger">{{config.technologies.length}}</b-badge>
+              <b-badge pill variant="secondary">{{config.technologies.length}}</b-badge>
             </slot>
           </template>
           <slot name="dropdown">
@@ -114,7 +114,7 @@
           <template slot="button-content">
             <slot name="header">
               <i class="fa fa-wrench"></i>
-              <b-badge pill variant="danger">{{config.tools.length}}</b-badge>
+              <b-badge pill variant="secondary">{{config.tools.length}}</b-badge>
             </slot>
           </template>
           <slot name="dropdown">
