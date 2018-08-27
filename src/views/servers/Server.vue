@@ -21,15 +21,8 @@
                 <i class="fa fa-globe"></i>
               </div>
               <span v-for="project in projects" :key="project.slug">
-                <figure class="figure d-inline-block">
-                  <router-link :to="'/projects/' + project.slug" class="mx-auto">
-                    <img
-                      :src="project.icon"
-                      class="figure-img img-fluid rounded" />
-                    <figcaption :class="'figure-caption text-center bg-' + getBadge(project.status)">{{ project.name }}</figcaption>
-                  </router-link>
-                </figure>
-                </span>
+                <figure-links :name="project.name" :link="project.slug" :icon="project.icon" :status="project.status"></figure-links>
+              </span>
             </b-list-group-item>
 
           </b-list-group>
@@ -92,10 +85,14 @@
 
 <script>
 import config from '@/_config'
+import FigureLinks from '@/FigureLinks'
 // import func from './vue-temp/vue-editor-bridge';
 
 export default {
   name: 'Server',
+  components: {
+    FigureLinks
+  },
   props: {
     caption: {
       type: String,

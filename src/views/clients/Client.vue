@@ -20,14 +20,9 @@
                 <h2 class="mb-1">Projects</h2>
                 <i class="fa fa-server"></i>
               </div>
-                <figure v-for="project in projects" :key="project.slug" class="figure d-inline-block">
-                  <router-link :to="'/projects/' + project.slug" class="mx-auto">
-                    <img
-                      :src="project.icon"
-                      class="figure-img img-fluid rounded" />
-                    <figcaption class="figure-caption text-center">{{ project.name }}</figcaption>
-                  </router-link>
-                </figure>
+              <span v-for="project in projects" :key="project.slug">
+                <figure-links :name="project.name" :link="project.slug" :icon="project.icon" :status="project.status"></figure-links>
+              </span>
             </b-list-group-item>
 
           </b-list-group>
@@ -90,10 +85,14 @@
 
 <script>
 import config from '@/_config'
+import FigureLinks from '@/FigureLinks'
 // import func from './vue-temp/vue-editor-bridge';
 
 export default {
   name: 'Client',
+  components: {
+    FigureLinks
+  },
   props: {
     caption: {
       type: String,
