@@ -68,10 +68,10 @@ for (let key in mergedClients) {
     }
   }
   client.badge = cArray.length
-  client.projects = pArray
+  client.projects = cArray
   clients.push(client)
 }
-// console.log(clients)
+console.log(clients)
 
 var technologies = []
 var mergedTechnologies = []

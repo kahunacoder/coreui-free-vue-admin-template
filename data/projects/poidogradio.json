@@ -10,7 +10,7 @@
   "root": "/Users/gts/Documents/Projects/Server/poidogradio/app/",
   "docRoot": "app/public",
   "url": "https://poidog.kc.gs",
-  "icon": "fa fa-paw",
+  "icon": "http://poidogradio.gts/images/poidogradio.png",
   "stagingUrl": "https://poidog.kc.gs",
   "remoteRepo": "https://bitbucket.org/kahunacoder/poidogradio/src/master/",
   "localRepo": "/Users/gts/Documents/Projects/Server/poidogradio/app",

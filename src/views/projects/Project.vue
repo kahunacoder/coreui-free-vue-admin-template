@@ -336,10 +336,9 @@ export default {
   },
   computed: {
     project: function () {
-      var needle = this.$route.params.slug; // what to look for
       var matched = {}
       for (let key in config.projects) {
-        if ( config.projects[key].slug === needle) {
+        if ( config.projects[key].slug === this.$route.params.slug) {
           matched = config.projects[key]
         }
       }

@@ -17,25 +17,19 @@
 
             <b-list-group-item>
               <div class="d-flex w-100 justify-content-between">
-                <h2 class="mb-1">Servers</h2>
-                <i class="fa fa-server"></i>
+                <h2 class="mb-1">Projects</h2>
+                <i class="fa fa-globe"></i>
               </div>
-                <figure title="Open Cloud at Cost" class="figure d-inline-block">
-                  <a href="https://panel.cloudatcost.com/index.php" target="cloudatcost">
+              <span v-for="project in projects" :key="project.slug">
+                <figure class="figure d-inline-block">
+                  <router-link :to="'/projects/' + project.slug" class="mx-auto">
                     <img
-                      src="img/tech-icons/cloudatcost.png"
+                      :src="project.icon"
                       class="figure-img img-fluid rounded" />
-                    <figcaption class="figure-caption text-center">Cloud at Cost</figcaption>
-                  </a>
+                    <figcaption :class="'figure-caption text-center bg-' + getBadge(project.status)">{{ project.name }}</figcaption>
+                  </router-link>
                 </figure>
-                <figure title="Open Docker" class="figure d-inline-block">
-                  <a :href="'http://localhost:9000/#/dashboard'" target="docker">
-                    <img
-                      src="img/tech-icons/docker.png"
-                      class="figure-img img-fluid rounded" />
-                    <figcaption class="figure-caption text-center">Docker</figcaption>
-                  </a>
-                </figure>
+                </span>
             </b-list-group-item>
 
           </b-list-group>
@@ -119,6 +113,15 @@ export default {
       }
       // console.log(matched)
       return matched
+    },
+    projects: function () {
+      var matched = []
+      for (let key in config.projects) {
+        if ( this.server.projects.includes(config.projects[key].slug)) {
+          matched.push(config.projects[key])
+        }
+      }
+      return matched
     }
   },
   data () {
@@ -153,18 +156,23 @@ export default {
 <style scoped lang="css">
 .figure {
   margin-bottom: 4px;
-  margin-right: 5%;
-  width: 64px;
-  height: 64px;
-  border: 1px;
+  margin-right: 1%;
+  width: 96px;
+  height: 96px;
   cursor: pointer;
+  overflow: visible;
+}
+.figure a {
+  display: block;
+  width: 80%;
+  height: 80%;
 }
 .img-icon {
   width: 24px;
 }
 .figure-img {
   width: 100%;
-  margin-bottom: 0;
+  height: 100%;
 }
 .figure-caption {
   font-size: 75%;

@@ -17,24 +17,16 @@
 
             <b-list-group-item>
               <div class="d-flex w-100 justify-content-between">
-                <h2 class="mb-1">clients</h2>
+                <h2 class="mb-1">Projects</h2>
                 <i class="fa fa-server"></i>
               </div>
-                <figure title="Open Cloud at Cost" class="figure d-inline-block">
-                  <a href="https://panel.cloudatcost.com/index.php" target="cloudatcost">
+                <figure v-for="project in projects" :key="project.slug" class="figure d-inline-block">
+                  <router-link :to="'/projects/' + project.slug" class="mx-auto">
                     <img
-                      src="img/tech-icons/cloudatcost.png"
+                      :src="project.icon"
                       class="figure-img img-fluid rounded" />
-                    <figcaption class="figure-caption text-center">Cloud at Cost</figcaption>
-                  </a>
-                </figure>
-                <figure title="Open Docker" class="figure d-inline-block">
-                  <a :href="'http://localhost:9000/#/dashboard'" target="docker">
-                    <img
-                      src="img/tech-icons/docker.png"
-                      class="figure-img img-fluid rounded" />
-                    <figcaption class="figure-caption text-center">Docker</figcaption>
-                  </a>
+                    <figcaption class="figure-caption text-center">{{ project.name }}</figcaption>
+                  </router-link>
                 </figure>
             </b-list-group-item>
 
@@ -113,12 +105,19 @@ export default {
       var needle = this.$route.params.slug; // what to look for
       var matched = {}
       for (let key in config.clients) {
-        console.log(needle)
         if ( config.clients[key].slug === needle) {
           matched = config.clients[key]
         }
       }
-      console.log(matched)
+      return matched
+    },
+    projects: function () {
+      var matched = []
+      for (let key in config.projects) {
+        if ( this.client.projects.includes(config.projects[key].slug)) {
+          matched.push(config.projects[key])
+        }
+      }
       return matched
     }
   },
@@ -154,11 +153,16 @@ export default {
 <style scoped lang="css">
 .figure {
   margin-bottom: 4px;
-  margin-right: 5%;
-  width: 64px;
-  height: 64px;
+  margin-right: 1%;
+  width: 96px;
   border: 1px;
   cursor: pointer;
+  overflow: visible;
+}
+.figure a {
+  display: block;
+  width: 80%;
+  height: 100%;
 }
 .img-icon {
   width: 24px;
