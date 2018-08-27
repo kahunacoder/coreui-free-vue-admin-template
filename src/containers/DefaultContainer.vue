@@ -33,7 +33,7 @@
                     <img
                       :src="project.icon"
                       class="img-icon" />
-                    {{project.name}}
+                    {{ truncate(project.name) }}
                 </b-list-group-item>
 
                </b-list-group>
@@ -56,7 +56,7 @@
                     <img
                       :src="server.icon"
                       class="img-icon" />
-                    {{server.name}}
+                    {{ truncate(server.name) }}
                 </b-list-group-item>
 
                </b-list-group>
@@ -79,7 +79,7 @@
                     <img
                       :src="client.icon"
                       class="img-icon" />
-                    {{client.name}}
+                    {{ truncate(client.name) }}
                 </b-list-group-item>
 
                </b-list-group>
@@ -102,7 +102,7 @@
                     <img
                       :src="technology.icon"
                       class="img-icon" />
-                    {{technology.name}}
+                    {{ truncate(technology.name) }}
                 </b-list-group-item>
 
                </b-list-group>
@@ -125,7 +125,7 @@
                     <img
                       :src="tool.icon"
                       class="img-icon" />
-                    {{tool.name}}
+                    {{ truncate(tool.name) }}
                 </b-list-group-item>
 
                </b-list-group>
@@ -210,6 +210,18 @@ export default {
     },
     list () {
       return this.$route.matched.filter((route) => route.name || route.meta.label )
+    }
+  },
+  methods: {
+    truncate (str) {
+      let maxLength = 15
+      let suffix = '...'
+      if (str.length > maxLength) {
+        str = str.substring(0, maxLength + 1);
+        str = str.substring(0, Math.min(str.length, str.lastIndexOf(" ")));
+        str = str + suffix;
+      }
+      return str;
     }
   }
 }

@@ -66,7 +66,7 @@ for (let key in config.servers) {
     url: '/servers/' + config.servers[key].slug,
     icon: config.servers[key].icon,
     badge: {
-      variant: 'primary',
+      variant: 'secondary',
       text: config.servers[key].badge
     }
   }
@@ -83,13 +83,24 @@ let clientsHead = {
   }
 }
 items.push(clientsHead)
+
+function Truncate(str, maxLength, suffix) {
+  if (str.length > maxLength) {
+    str = str.substring(0, maxLength + 1);
+    str = str.substring(0, Math.min(str.length, str.lastIndexOf(" ")));
+    str = str + suffix;
+  }
+  return str;
+}
+
 for (let key in config.clients) {
+  let name = Truncate(config.clients[key].name, 15, '...')
   let client = {
-    name: config.clients[key].name,
+    name: name,
     url: '/clients/' + config.clients[key].slug,
     icon: config.clients[key].icon,
     badge: {
-      variant: 'primary',
+      variant: 'secondary',
       text: config.clients[key].badge
     }
   }
@@ -107,12 +118,13 @@ let technologiesHead = {
 }
 items.push(technologiesHead)
 for (let key in config.technologies) {
+  let name = Truncate(config.technologies[key].name, 15, '...')
   let technology = {
-    name: config.technologies[key].name,
+    name: name,
     url: '/technologies/' + config.technologies[key].slug,
     icon: config.technologies[key].icon,
     badge: {
-      variant: 'primary',
+      variant: 'secondary',
       text: config.technologies[key].badge
     }
   }
@@ -130,8 +142,9 @@ let toolsHead = {
 }
 items.push(toolsHead)
 for (let key in config.tools) {
+  let name = Truncate(config.tools[key].name, 15, '...')
   let tool = {
-    name: config.tools[key].name,
+    name: name,
     url: '/tools/' + config.tools[key].slug,
     icon: config.tools[key].icon,
   }

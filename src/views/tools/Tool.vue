@@ -231,6 +231,10 @@
       <b-col>
         <b-card>
           <template slot="header">
+            <img
+              :src="tool.icon"
+              class="img-icon"
+              />
             {{ tool.name }}
           </template>
           <b-tabs v-model="tabIndex[0]">
