@@ -2,10 +2,11 @@
   "name": "Laradock",
   "url": "localhost",
   "slug": "laradock",
-  "icon": "http://projectsadmin.gts/img/tech-icons/docker.png",
+  "icon": "http://webdevworkspace.gts/img/tech-icons/docker.png",
   "type": "Docker",
   "version": "16",
-  "software": [{
+  "software": [
+    {
       "name": "Nginx",
       "version": "1"
     },
@@ -14,7 +15,8 @@
       "version": "1"
     }
   ],
-  "containers": [{
+  "containers": [
+    {
       "name": "laradock_ngnix",
       "version": "1"
     },
@@ -23,7 +25,8 @@
       "version": "2"
     }
   ],
-  "bookmarks": [{
+  "bookmarks": [
+    {
       "title": "Laradock Home Page",
       "url": "http://laradock.com"
     },

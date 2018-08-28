@@ -2,10 +2,11 @@
   "name": "DSI",
   "url": "dsi.gs",
   "slug": "dsi",
-  "icon": "http://projectsadmin.gts/img/tech-icons/ubuntu.png",
+  "icon": "http://webdevworkspace.gts/img/tech-icons/ubuntu.png",
   "type": "Ubuntu",
   "version": "16.04.2-LTS",
-  "software": [{
+  "software": [
+    {
       "name": "Nginx",
       "version": "1"
     },
@@ -14,7 +15,8 @@
       "version": "1"
     }
   ],
-  "bookmarks": [{
+  "bookmarks": [
+    {
       "name": "",
       "url": ""
     },

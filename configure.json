@@ -3,7 +3,7 @@
   "tools": ["oc", "iconmoon", "gmail", "bitbucket", "github"],
   "projectRoot": "./",
   "tld": "gts",
-  "projectsAdminConf": "/Users/gts/Documents/Projects/Server/projectsadmin/web/configure.json",
-  "projectsConf": "/Users/gts/Documents/Projects/Server/projectsadmin/web/projects/",
+  "webdevworkspaceConf": "/Users/gts/Documents/Projects/Server/webdevworkspace/web/configure.json",
+  "projectsConf": "/Users/gts/Documents/Projects/Server/webdevworkspace/web/projects/",
   "edit": "vscode://file/Users/gts/Documents/Projects/Server/dockerhome/"
 }

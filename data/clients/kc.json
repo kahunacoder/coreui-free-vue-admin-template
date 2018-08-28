@@ -2,7 +2,7 @@
   "name": "Kahuna Coder",
   "slug": "kc",
   "url": "http://kc.gs",
-  "icon": "http://projectsadmin.gts/img/avatars/me_with_hat_black.jpg",
+  "icon": "http://webdevworkspace.gts/img/avatars/me_with_hat_black.jpg",
   "street": "",
   "street1": "",
   "city": "",
@@ -12,7 +12,8 @@
   "phone": "",
   "mobile": "",
   "fax": "",
-  "contacts": [{
+  "contacts": [
+    {
       "name": "",
       "email": "",
       "phone": "",

@@ -2,7 +2,7 @@
   "name": "Data Space Industires",
   "slug": "dsi",
   "url": "http://dsi.gs",
-  "icon": "http://projectsadmin.gts/img/avatars/3.jpg",
+  "icon": "http://webdevworkspace.gts/img/avatars/3.jpg",
   "street": "",
   "street1": "",
   "city": "",
@@ -12,7 +12,8 @@
   "phone": "",
   "mobile": "",
   "fax": "",
-  "contacts": [{
+  "contacts": [
+    {
       "name": "Roger Jacobs",
       "email": "raj@dsi.gs",
       "phone": "",
@@ -27,10 +28,12 @@
       "fax": ""
     }
   ],
-  "bookmarks": [{
-    "title": "Roger Jacobs",
-    "dateAdded": 1505576396419000,
-    "iconuri": "https://www.google.com/a/kahunacoder.com/images/favicon.ico",
-    "uri": "https://mail.google.com/mail/u/0/#label/Clients%2FDSI%2FStaff%2FRoger"
-  }]
+  "bookmarks": [
+    {
+      "title": "Roger Jacobs",
+      "dateAdded": 1505576396419000,
+      "iconuri": "https://www.google.com/a/kahunacoder.com/images/favicon.ico",
+      "uri": "https://mail.google.com/mail/u/0/#label/Clients%2FDSI%2FStaff%2FRoger"
+    }
+  ]
 }
