@@ -1,5 +1,14 @@
 import config from '@/_config'
 // console.log(config)
+function Truncate(str, maxLength, suffix) {
+  if (str.length > maxLength) {
+    str = str.substring(0, maxLength + 1);
+    str = str.substring(0, Math.min(str.length, str.lastIndexOf(" ")));
+    str = str + suffix;
+  }
+  return str;
+}
+
 var items = []
 let dashboard = {
   name: 'Dashboard',
@@ -38,8 +47,9 @@ for (let key in config.projects) {
     variant = 'warning'
     text = 'Dev'
   }
+  let name = Truncate(config.projects[key].name, 15, '...')
   let project = {
-    name: config.projects[key].name,
+    name: name,
     url: '/projects/' + config.projects[key].slug,
     icon: config.projects[key].icon,
     badge: {
@@ -61,8 +71,9 @@ let serversHead = {
 }
 items.push(serversHead)
 for (let key in config.servers) {
+  let name = Truncate(config.servers[key].name, 15, '...')
   let server = {
-    name: config.servers[key].name,
+    name: name,
     url: '/servers/' + config.servers[key].slug,
     icon: config.servers[key].icon,
     badge: {
@@ -84,14 +95,6 @@ let clientsHead = {
 }
 items.push(clientsHead)
 
-function Truncate(str, maxLength, suffix) {
-  if (str.length > maxLength) {
-    str = str.substring(0, maxLength + 1);
-    str = str.substring(0, Math.min(str.length, str.lastIndexOf(" ")));
-    str = str + suffix;
-  }
-  return str;
-}
 
 for (let key in config.clients) {
   let name = Truncate(config.clients[key].name, 15, '...')
