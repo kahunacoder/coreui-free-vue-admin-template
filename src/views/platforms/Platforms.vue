@@ -26,7 +26,7 @@
 <script>
 import config from '@/_config'
 export default {
-  name: 'Tools',
+  name: 'Platforms',
   props: {
     caption: {
       type: String,
@@ -63,11 +63,11 @@ export default {
       // "log": "vscode://file/Users/gts/Documents/Projects/Server/wikikaukau/logs/wikikaukau_error.log"
 
       // items: config.projects.filter((user) => user.id < 42),
-      items: config.tools,
+      items: config.platforms,
       fields: [
         {key: 'name'},
-        {key: 'slug'},
-        {key: 'type'},
+        {key: 'slug'}// ,
+        // {key: 'type'},
         // {key: 'editor'},
         // {key: 'log'}
       ],
@@ -89,7 +89,7 @@ export default {
       return items.length
     },
     projectLink (slug) {
-      return `technologies/${slug}`
+      return `platforms/${slug}`
     },
     rowClicked (item) {
       const projectLink = this.projectLink(item.slug)

@@ -48,7 +48,7 @@ for (let key in mergedPlatforms) {
   platform.projects = plArray
   platforms.push(platform)
 }
-console.log(platforms)
+// console.log(platforms)
 
 var mergedServers = []
 for (let key in projects) {

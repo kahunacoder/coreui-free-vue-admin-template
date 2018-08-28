@@ -21,7 +21,7 @@
         <b-nav-item-dropdown right no-caret>
           <template slot="button-content">
             <slot name="header">
-              <i class="fa fa-globe"></i>
+              <i class="fa fa-building-o"></i>
               <b-badge pill variant="secondary">{{config.projects.length}}</b-badge>
             </slot>
           </template>

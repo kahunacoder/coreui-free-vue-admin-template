@@ -90,6 +90,7 @@ export default {
 .figure-img {
   width: 100%;
   height: 100%;
+  margin-bottom: 0;
 }
 .figure-caption {
   font-size: 75%;
