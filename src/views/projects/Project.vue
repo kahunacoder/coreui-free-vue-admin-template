@@ -29,15 +29,9 @@
                 <h2 class="mb-1">Web Sites</h2>
                 <i class="fa fa-sitemap"></i>
               </div>
-                <span v-if="project.url !== ''">
-                  <figure-links :title="'Live Site'" :name="project.name" :link="project.url" :external="true" :icon="project.icon" :status="project.status"></figure-links>
-                </span>
-                <span v-if="project.stagingUrl !== ''">
-                  <figure-links :title="'Staging Site'" :name="project.name" :link="project.stagingUrl" :external="true" :icon="project.icon" :status="'staging'"></figure-links>
-                </span>
-                <span>
+                  <figure-links v-if="project.url !== ''" :title="'Live Site'" :name="project.name" :link="project.url" :external="true" :icon="project.icon" :status="project.status"></figure-links>
+                  <figure-links v-if="project.stagingUrl !== ''" :title="'Staging Site'" :name="project.name" :link="project.stagingUrl" :external="true" :icon="project.icon" :status="'staging'"></figure-links>
                   <figure-links :title="'Dev Site'" :name="project.name" :link="'http://' + $route.params.slug + '.' + project.tld" :external="true" :icon="project.icon" :status="'dev'"></figure-links>
-                </span>
             </b-list-group-item>
 
             <b-list-group-item>
@@ -45,12 +39,10 @@
                 <h2 class="mb-1">Editors</h2>
                 <i class="fa fa-code" style="font-weight:bold;"></i>
               </div>
-              <p>
                 <span v-for="(editor, index) in project.editors" :key="`editor-${index}`">
                     <figure-links v-if="editor === 'code'" title="Edit projects code with Visual Studio Code" name="VS Code" :link="'telnet:///usr/local/bin/' + editor + ' ' + project.root" :external="true" icon="img/tech-icons/vscode.png"></figure-links>
                     <figure-links v-if="editor === 'subl'" title="Edit projects code with Sublime Text" name="Sublime" :link="'telnet:///usr/local/bin/' + editor + ' ' + project.root" :external="true" icon="img/tech-icons/sublime-text.png"></figure-links>
                 </span>
-              </p>
             </b-list-group-item>
 
             <b-list-group-item>
@@ -58,23 +50,8 @@
                 <h2 class="mb-1">Data</h2>
                 <i class="fa fa-database"></i>
               </div>
-              <p>
-                <figure title="Open Sequel Pro"  class="figure d-inline-block">
-                  <a :href="'telnet:///usr/bin/open ' + project.root + 'docker.spf'">
-                    <img
-                      src="img/tech-icons/sequel-pro.png"
-                      class="figure-img img-fluid rounded" />
-                    <figcaption class="figure-caption text-center">MySql</figcaption>
-                  </a>
-                </figure>
-                <figure title="Edit Json Data for Project"  class="figure d-inline-block">
-                  <a :href="project.log">
-                    <img
-                      src="img/tech-icons/json.png"
-                      class="figure-img img-fluid rounded" />
-                    <figcaption class="figure-caption text-center">Json</figcaption>
-                  </a>
-                </figure>
+                <figure-links title="Open Sequel Pro" name="MySql" :link="'telnet:///usr/bin/open ' + project.root + 'docker.spf'" :external="true" icon="img/tech-icons/sequel-pro.png"></figure-links>
+                <figure-links title="Edit Json Data for Project" name="Json" :link="project.log" :external="true" icon="img/tech-icons/json.png"></figure-links>
             </b-list-group-item>
 
             <b-list-group-item>
@@ -82,14 +59,7 @@
                 <h2 class="mb-1">Logs</h2>
                 <i class="fa fa-heartbeat"></i>
               </div>
-                <figure title="View Error Logs" class="figure d-inline-block">
-                  <a :href="'telnet:///usr/bin/open ' + project.log">
-                    <img
-                      src="img/tech-icons/console.png"
-                      class="figure-img img-fluid rounded" />
-                    <figcaption class="figure-caption text-center">Error Logs</figcaption>
-                  </a>
-                </figure>
+                <figure-links title="View Error Logs" name="Error Logs" :link="'telnet:///usr/bin/open ' + project.log" :external="true" icon="img/tech-icons/console.png"></figure-links>
             </b-list-group-item>
 
             <b-list-group-item>
@@ -97,22 +67,8 @@
                 <h2 class="mb-1">Repositories</h2>
                 <i class="fa fa-git"></i>
               </div>
-                <figure title="Open Git Tower for this project" class="figure d-inline-block">
-                  <a :href="'telnet:///usr/local/bin/gittower ' + project.root">
-                    <img
-                      src="img/tech-icons/git-tower.png"
-                      class="figure-img img-fluid rounded" />
-                    <figcaption class="figure-caption text-center">Tower</figcaption>
-                  </a>
-                </figure>
-                <figure title="Open Bitbucket for this project" class="figure d-inline-block">
-                  <a :href="project.remoteRepo" target="bitbucket">
-                    <img
-                      src="img/tech-icons/bitbucket.png"
-                      class="figure-img img-fluid rounded" />
-                    <figcaption class="figure-caption text-center">Bitbucket</figcaption>
-                  </a>
-                </figure>
+                <figure-links title="Open Git Tower for this project" name="Tower" :link="'telnet:///usr/local/bin/gittower ' + project.root" :external="true" icon="img/tech-icons/git-tower.png"></figure-links>
+                <figure-links title="Open Bitbucket for this project" name="Bitbucket" :link="project.remoteRepo" target="bitbucket" :external="true" icon="img/tech-icons/bitbucket.png"></figure-links>
             </b-list-group-item>
 
             <b-list-group-item>
@@ -120,54 +76,12 @@
                 <h2 class="mb-1">Configurations</h2>
                 <i class="fa fa-gear"></i>
               </div>
-                <figure v-if="project.conf !== ''" title="Configure dev server settings" class="figure d-inline-block">
-                  <a :href="'telnet:///usr/bin/open  ' + project.conf">
-                    <img
-                      src="img/tech-icons/nginx.png"
-                      class="figure-img img-fluid rounded" />
-                    <figcaption class="figure-caption text-center">Nginx</figcaption>
-                  </a>
-                </figure>
-                <figure v-if="project.env === true" title="Configure project's application settings" class="figure d-inline-block">
-                  <a :href="'telnet:///usr/bin/open  ' + project.root + '.env'">
-                    <img
-                      src="img/tech-icons/laravel.png"
-                      class="figure-img img-fluid rounded" />
-                    <figcaption class="figure-caption text-center">Application</figcaption>
-                  </a>
-                </figure>
-                <figure v-if="project.deploy === true" title="Configure deployment for this project" class="figure d-inline-block">
-                  <a  :href="'telnet:///usr/bin/open ' + project.root + 'deploy.yml'">
-                    <img
-                      src="img/tech-icons/ansible.png"
-                      class="figure-img img-fluid rounded" />
-                    <figcaption class="figure-caption text-center">Deployment</figcaption>
-                  </a>
-                </figure>
-                <figure v-if="project.composer === true" title="Install project vendor scripts" class="figure d-inline-block">
-                  <a  :href="'telnet:///usr/bin/open ' + project.root + 'composer.json'">
-                    <img
-                      src="img/tech-icons/composer.png"
-                      class="figure-img img-fluid rounded" />
-                    <figcaption class="figure-caption text-center">Composer</figcaption>
-                  </a>
-                </figure>
-                <figure v-if="project.npm  === true" title="Install project node modules" class="figure d-inline-block ">
-                  <a  :href="'telnet:///usr/bin/open ' + project.root + 'package.json'">
-                    <img
-                      src="img/tech-icons/npm-2.png"
-                      class="figure-img img-fluid rounded" />
-                    <figcaption class="figure-caption text-center">NPM</figcaption>
-                  </a>
-                </figure>
-                <figure v-if="config.config.projectsConf !== ''" class="figure d-inline-block" title="Edit this page">
-                  <a :href="'telnet:///usr/bin/open ' + config.config.projectsConf + project.slug  + '.json'">
-                    <img
-                      src="img/tech-icons/coreui.png"
-                      class="figure-img img-fluid rounded" />
-                    <figcaption class="figure-caption text-center">This Page.</figcaption>
-                  </a>
-                </figure>
+                <figure-links v-if="project.conf !== ''" title="Configure dev server settings" name="Nginx" :link="'telnet:///usr/bin/open  ' + project.conf" :external="true" icon="img/tech-icons/nginx.png"></figure-links>
+                <figure-links v-if="project.env === true" title="Configure project's application settings" name="Application" :link="'telnet:///usr/bin/open  ' + project.root + '.env'" :external="true" icon="img/tech-icons/laravel.png"></figure-links>
+                <figure-links v-if="project.deploy === true" title="Configure deployment for this project" name="Deployment" :link="'telnet:///usr/bin/open ' + project.root + 'deploy.yml'" :external="true" icon="img/tech-icons/ansible.png"></figure-links>
+                <figure-links v-if="project.composer === true" title="Install project vendor scripts" name="Composer" :link="'telnet:///usr/bin/open ' + project.root + 'composer.json'" :external="true" icon="img/tech-icons/composer.png"></figure-links>
+                <figure-links v-if="project.npm === true" title="Install project node modules" name="NPM" :link="'telnet:///usr/bin/open ' + project.root + 'package.json'" :external="true" icon="img/tech-icons/npm-2.png"></figure-links>
+                <figure-links v-if="config.config.projectsConf !== ''" title="Edit this page" name="NPM" :link="'telnet:///usr/bin/open ' + config.config.projectsConf + project.slug  + '.json'" :external="true" icon="img/tech-icons/coreui.png"></figure-links>
             </b-list-group-item>
 
             <b-list-group-item>
@@ -175,30 +89,9 @@
                 <h2 class="mb-1">Performance</h2>
                 <i class="fa fa-tachometer"></i>
               </div>
-                <figure title="Open sitespeed.io for this project" class="figure d-inline-block">
-                  <a :href="'http://127.0.0.1:3000/d/000000045/site-summary?orgId=1&var-base=sitespeed_io&var-path=default&var-group='+project.speedio+'&var-browser=chrome&var-connectivity=native&var-function=median'" target="speedtestio">
-                    <img
-                      src="img/tech-icons/sitespeedio.png"
-                      class="figure-img img-fluid rounded" />
-                    <figcaption class="figure-caption text-center">SpeedTestIo</figcaption>
-                  </a>
-                </figure>
-                <figure title="Open WebDash for this project" class="figure d-inline-block">
-                  <a :href="'http://localhost:' + webdash" target="speedtestio">
-                    <img
-                      src="img/tech-icons/webdash.png"
-                      class="figure-img img-fluid rounded" />
-                    <figcaption class="figure-caption text-center">WebDash</figcaption>
-                  </a>
-                </figure>
-                <figure title="Open Pingdom" class="figure d-inline-block">
-                  <a :href="'https://my.pingdom.com/newchecks/checks'" target="pingdom">
-                    <img
-                      src="img/tech-icons/pingdom.png"
-                      class="figure-img img-fluid rounded" />
-                    <figcaption class="figure-caption text-center">Uptime</figcaption>
-                  </a>
-                </figure>
+                <figure-links title="Open sitespeed.io for this project" name="SpeedTestIo" :link="'http://127.0.0.1:3000/d/000000045/site-summary?orgId=1&var-base=sitespeed_io&var-path=default&var-group='+project.speedio+'&var-browser=chrome&var-connectivity=native&var-function=median'" target="speedio" :external="true" icon="img/tech-icons/sitespeedio.png"></figure-links>
+                <figure-links title="Open WebDash for this project" name="WebDash" :link="'http://localhost:' + webdash" target="webdash" :external="true" icon="img/tech-icons/webdash.png"></figure-links>
+                <figure-links title="Open Pingdom" name="Uptime" :link="'https://my.pingdom.com/newchecks/checks'" target="pingdom" :external="true" icon="img/tech-icons/pingdom.png"></figure-links>
             </b-list-group-item>
 
             <b-list-group-item>
@@ -206,22 +99,8 @@
                 <h2 class="mb-1">Servers</h2>
                 <i class="fa fa-server"></i>
               </div>
-                <figure title="Open Cloud at Cost" class="figure d-inline-block">
-                  <a href="https://panel.cloudatcost.com/index.php" target="cloudatcost">
-                    <img
-                      src="img/tech-icons/cloudatcost.png"
-                      class="figure-img img-fluid rounded" />
-                    <figcaption class="figure-caption text-center">Cloud at Cost</figcaption>
-                  </a>
-                </figure>
-                <figure title="Open Docker" class="figure d-inline-block">
-                  <a :href="'http://localhost:9000/#/dashboard'" target="docker">
-                    <img
-                      src="img/tech-icons/docker.png"
-                      class="figure-img img-fluid rounded" />
-                    <figcaption class="figure-caption text-center">Docker</figcaption>
-                  </a>
-                </figure>
+                <figure-links title="Open Cloud at Cost" name="Cloud at Cost" :link="'https://panel.cloudatcost.com/index.php'" target="cloudatcost" :external="true" icon="img/tech-icons/cloudatcost.png"></figure-links>
+                <figure-links title="Open Docker" name="Docker" :link="'http://localhost:9000/#/dashboard'" target="docker" :external="true" icon="img/tech-icons/docker.png"></figure-links>
             </b-list-group-item>
 
           </b-list-group>
@@ -356,23 +235,4 @@ export default {
 </script>
 <style scoped lang="css">
 @import "../../../node_modules/xterm/dist/xterm.css";
-.figure {
-  margin-bottom: 4px;
-  margin-right: 5%;
-  width: 64px;
-  height: 64px;
-  border: 1px;
-  cursor: pointer;
-}
-.img-icon {
-  width: 24px;
-}
-.figure-img {
-  width: 100%;
-  margin-bottom: 0;
-}
-.figure-caption {
-  font-size: 75%;
-  color: #262626;
-}
 </style>
