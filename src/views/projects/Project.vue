@@ -81,7 +81,7 @@
                 <figure-links v-if="project.deploy === true" title="Configure deployment for this project" name="Deployment" :link="'telnet:///usr/bin/open ' + project.root + 'deploy.yml'" :external="true" icon="img/tech-icons/ansible.png"></figure-links>
                 <figure-links v-if="project.composer === true" title="Install project vendor scripts" name="Composer" :link="'telnet:///usr/bin/open ' + project.root + 'composer.json'" :external="true" icon="img/tech-icons/composer.png"></figure-links>
                 <figure-links v-if="project.npm === true" title="Install project node modules" name="NPM" :link="'telnet:///usr/bin/open ' + project.root + 'package.json'" :external="true" icon="img/tech-icons/npm-2.png"></figure-links>
-                <figure-links v-if="config.config.projectsConf !== ''" title="Edit this page" name="NPM" :link="'telnet:///usr/bin/open ' + config.config.projectsConf + project.slug  + '.json'" :external="true" icon="img/tech-icons/coreui.png"></figure-links>
+                <figure-links v-if="config.config.projectsConf !== ''" title="Edit this page" name="This Project" :link="'telnet:///usr/bin/open ' + config.config.projectsConf + project.slug  + '.json'" :external="true" icon="img/brand/workspace.png"></figure-links>
             </b-list-group-item>
 
             <b-list-group-item>

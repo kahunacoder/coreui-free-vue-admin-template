@@ -4,6 +4,6 @@
   "projectRoot": "./",
   "tld": "gts",
   "webdevworkspaceConf": "/Users/gts/Documents/Projects/Server/webdevworkspace/web/configure.json",
-  "projectsConf": "/Users/gts/Documents/Projects/Server/webdevworkspace/web/projects/",
+  "projectsConf": "/Users/gts/Documents/Projects/Server/webdevworkspace/web/data/projects/",
   "edit": "vscode://file/Users/gts/Documents/Projects/Server/dockerhome/"
 }
