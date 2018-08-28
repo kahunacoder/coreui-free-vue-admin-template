@@ -1,7 +1,7 @@
 <template>
  <span>
   <figure v-if="external" :title="title" class="figure d-inline-block">
-    <a :href="link" :target="link" class="mx-auto">
+    <a :href="link" :target="target" class="mx-auto">
       <img
         :src="icon"
         class="figure-img img-fluid rounded" />
@@ -40,6 +40,10 @@ export default {
       default: ''
     },
     title: {
+      type: String,
+      default: ''
+    },
+    target: {
       type: String,
       default: ''
     },
