@@ -3,8 +3,8 @@
     <AppHeader fixed>
       <SidebarToggler class="d-lg-none" display="md" mobile />
       <b-link class="navbar-brand" to="#">
-        <img class="navbar-brand-full" src="img/brand/logo.svg" width="89" height="25" alt="CoreUI Logo">
-        <img class="navbar-brand-minimized" src="img/brand/sygnet.svg" width="30" height="30" alt="CoreUI Logo">
+        <img class="navbar-brand-full" src="img/brand/workspace.png"  height="25" alt="WebDev Workspace"> Workspace
+        <img class="navbar-brand-minimized" src="img/brand/workspace.svg" width="30" height="30" alt="WebDev Workspace">
       </b-link>
       <SidebarToggler class="d-md-down-none" display="lg" />
       <b-navbar-nav class="d-md-down-none">
@@ -57,6 +57,29 @@
                       :src="server.icon"
                       class="img-icon" />
                     {{ truncate(server.name) }}
+                </b-list-group-item>
+
+               </b-list-group>
+            </div>
+          </slot>
+        </b-nav-item-dropdown>
+
+        <b-nav-item-dropdown right no-caret>
+          <template slot="button-content">
+            <slot name="header">
+              <i class="fa fa-cubes"></i>
+              <b-badge pill variant="secondary">{{config.platforms.length}}</b-badge>
+            </slot>
+          </template>
+          <slot name="dropdown">
+            <div>
+              <b-list-group v-for="platform in config.platforms" :key="platform.slug">
+
+                <b-list-group-item :to="'/platforms/' + platform.slug">
+                    <img
+                      :src="platform.icon"
+                      class="img-icon" />
+                    {{ truncate(platform.name) }}
                 </b-list-group-item>
 
                </b-list-group>
@@ -160,12 +183,12 @@
     <TheFooter>
       <!--footer-->
       <div>
-        <a href="https://kahunacoder.com">KahunaCoder</a>
+        <a href="https://kahunacoder.com">WebDev Workspace</a>
         <span class="ml-1">&copy; 2018 Gary Smith.</span>
       </div>
       <div class="ml-auto">
         <span class="mr-1">Powered by</span>
-        <a href="https://coreui.io">CoreUI for Vue</a>
+        <a href="https://coreui.io">WebDev Workspace</a>
       </div>
     </TheFooter>
   </div>

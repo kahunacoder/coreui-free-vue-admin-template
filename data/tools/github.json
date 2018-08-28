@@ -1,0 +1,10 @@
+{
+  "name": "Git Hub",
+  "slug": "github",
+  "type": "web",
+  "tags": ["git"],
+  "url": "https://github.org/kahunacoder/",
+  "icon": "http://projectsadmin.gts/img/tech-icons/github.png",
+  "description": "Git Hub Repository",
+  "bookmarks": []
+}

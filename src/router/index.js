@@ -119,6 +119,12 @@ const Tools = () =>
 const Tool = () =>
   import ('@/views/tools/Tool')
 
+// Platforms
+const Platforms = () =>
+  import ('@/views/platforms/Platforms')
+const Platform = () =>
+  import ('@/views/platforms/Platform')
+
 Vue.use(Router)
 
 export default new Router({
@@ -212,6 +218,30 @@ export default new Router({
             },
             name: 'Server',
             component: Server,
+          },
+        ]
+      },
+      {
+        path: 'platforms',
+        meta: {
+          label: 'Platforms'
+        },
+        component: {
+          render(c) {
+            return c('router-view')
+          }
+        },
+        children: [{
+            path: '',
+            component: Platforms,
+          },
+          {
+            path: ':slug',
+            meta: {
+              label: 'Platform Details'
+            },
+            name: 'Platform',
+            component: Platform,
           },
         ]
       },

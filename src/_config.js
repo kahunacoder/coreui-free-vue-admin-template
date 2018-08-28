@@ -1,6 +1,16 @@
 // const fs = require("fs")
 import config from '../configure.json'
 // console.log(config)
+function arrayUnique(array) {
+  var a = array.concat();
+  for (var i = 0; i < a.length; ++i) {
+    for (var j = i + 1; j < a.length; ++j) {
+      if (a[i] === a[j])
+        a.splice(j--, 1);
+    }
+  }
+  return a;
+}
 
 var projects = []
 for (let key in config.projects) {
@@ -16,16 +26,29 @@ for (let key in config.tools) {
   tools.push(tool)
 }
 
-function arrayUnique(array) {
-  var a = array.concat();
-  for (var i = 0; i < a.length; ++i) {
-    for (var j = i + 1; j < a.length; ++j) {
-      if (a[i] === a[j])
-        a.splice(j--, 1);
+
+var mergedPlatforms = []
+for (let key in projects) {
+  if (projects[key].servers !== '') {
+    mergedPlatforms = arrayUnique(mergedPlatforms.concat(projects[key].platforms))
+  }
+}
+
+var platforms = []
+for (let key in mergedPlatforms) {
+  let slug = mergedPlatforms[key]
+  let platform = require('../data/platforms/' + slug + '.json')
+  var plArray = []
+  for (let key1 in projects) {
+    if (projects[key1].platforms.includes(slug)) {
+      plArray.push(projects[key1].slug)
     }
   }
-  return a;
+  platform.badge = plArray.length
+  platform.projects = plArray
+  platforms.push(platform)
 }
+console.log(platforms)
 
 var mergedServers = []
 for (let key in projects) {
@@ -113,5 +136,6 @@ export default {
   servers: servers,
   clients: clients,
   technologies: technologies,
-  tools: tools
+  tools: tools,
+  platforms: platforms
 }

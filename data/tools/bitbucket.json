@@ -1,0 +1,10 @@
+{
+  "name": "Bitbucket",
+  "slug": "bitbucket",
+  "type": "web",
+  "tags": ["git"],
+  "url": "https://bitbucket.org/kahunacoder/",
+  "icon": "http://projectsadmin.gts/img/tech-icons/bitbucket.png",
+  "description": "Bitbucket Repository",
+  "bookmarks": []
+}

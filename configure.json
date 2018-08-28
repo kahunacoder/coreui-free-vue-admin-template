@@ -1,6 +1,6 @@
 {
   "projects": ["soluntide", "wikikaukau", "portfolio", "resume", "poidogradio", "webdevworkspace"],
-  "tools": ["oc", "iconmoon"],
+  "tools": ["oc", "iconmoon", "gmail", "bitbucket", "github"],
   "projectRoot": "./",
   "tld": "gts",
   "projectsAdminConf": "/Users/gts/Documents/Projects/Server/projectsadmin/web/configure.json",
