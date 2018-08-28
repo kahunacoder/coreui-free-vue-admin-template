@@ -6,6 +6,7 @@
   "status": "dev",
   "language": "php",
   "libraries": ["laravel"],
+  "platforms": ["web"],
   "tld": "gts",
   "root": "/Users/gts/Documents/Projects/Server/wikikaukau/web/",
   "docRoot": "web",

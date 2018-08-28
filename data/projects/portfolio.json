@@ -6,6 +6,7 @@
   "status": "live",
   "language": "ruby",
   "libraries": ["jekyll"],
+  "platforms": ["web"],
   "tld": "gts",
   "root": "/Users/gts/Documents/Projects/Server/portfolio/site/",
   "docRoot": "_site",

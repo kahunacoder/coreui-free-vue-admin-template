@@ -71,7 +71,7 @@ for (let key in mergedClients) {
   client.projects = cArray
   clients.push(client)
 }
-console.log(clients)
+// console.log(clients)
 
 var technologies = []
 var mergedTechnologies = []

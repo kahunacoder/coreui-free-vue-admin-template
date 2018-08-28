@@ -29,30 +29,15 @@
                 <h2 class="mb-1">Web Sites</h2>
                 <i class="fa fa-sitemap"></i>
               </div>
-                <figure v-if="project.url !== ''"  title="Live Site" class="figure d-inline-block">
-                  <a :href="project.url" :target="$route.params.slug">
-                    <img
-                    :src="project.icon"
-                    class="figure-img img-fluid rounded" />
-                    <figcaption class="figure-caption text-center">Live</figcaption>
-                  </a>
-                </figure>
-                <figure v-if="project.stagingUrl !== ''"  title="Staging Site" class="figure d-inline-block">
-                  <a :href="project.stagingUrl" :target="$route.params.slug">
-                    <img
-                      :src="project.icon"
-                      class="figure-img img-fluid rounded" />
-                    <figcaption class="figure-caption text-center">Staging</figcaption>
-                  </a>
-                </figure>
-                <figure title="Dev Site" class="figure d-inline-block">
-                  <a :href="'http://' + $route.params.slug + '.' + project.tld" :target="$route.params.slug">
-                    <img
-                      :src="project.icon"
-                      class="figure-img img-fluid rounded" />
-                    <figcaption class="figure-caption text-center">Dev</figcaption>
-                  </a>
-                </figure>
+                <span v-if="project.url !== ''">
+                  <figure-links :title="'Live Site'" :name="project.name" :link="project.url" :external="true" :icon="project.icon" :status="project.status"></figure-links>
+                </span>
+                <span v-if="project.stagingUrl !== ''">
+                  <figure-links :title="'Staging Site'" :name="project.name" :link="project.stagingUrl" :external="true" :icon="project.icon" :status="'staging'"></figure-links>
+                </span>
+                <span>
+                  <figure-links :title="'Dev Site'" :name="project.name" :link="'http://' + $route.params.slug + '.' + project.tld" :external="true" :icon="project.icon" :status="'dev'"></figure-links>
+                </span>
             </b-list-group-item>
 
             <b-list-group-item>
@@ -62,22 +47,8 @@
               </div>
               <p>
                 <span v-for="(editor, index) in project.editors" :key="`editor-${index}`">
-                  <figure title="Edit projects code with Visual Studio Code" v-if="editor === 'code'" class="figure d-inline-block">
-                    <a :href="'telnet:///usr/local/bin/' + editor + ' ' + project.root">
-                      <img
-                        src="img/tech-icons/vscode.png"
-                        class="figure-img img-fluid rounded" />
-                      <figcaption class="figure-caption text-center">VS Code</figcaption>
-                    </a>
-                  </figure>
-                  <figure title="Edit projects code with Sublime Text" v-if="editor === 'subl'" class="figure d-inline-block">
-                    <a :href="'telnet:///usr/local/bin/' + editor + ' ' + project.root">
-                      <img
-                        src="img/tech-icons/sublime-text.png"
-                        class="figure-img img-fluid rounded" />
-                      <figcaption class="figure-caption text-center">Sublime</figcaption>
-                    </a>
-                  </figure>
+                    <figure-links v-if="editor === 'code'" title="Edit projects code with Visual Studio Code" name="VS Code" :link="'telnet:///usr/local/bin/' + editor + ' ' + project.root" :external="true" icon="img/tech-icons/vscode.png"></figure-links>
+                    <figure-links v-if="editor === 'subl'" title="Edit projects code with Sublime Text" name="Sublime" :link="'telnet:///usr/local/bin/' + editor + ' ' + project.root" :external="true" icon="img/tech-icons/sublime-text.png"></figure-links>
                 </span>
               </p>
             </b-list-group-item>
@@ -314,6 +285,7 @@
 
 <script>
 import config from '@/_config'
+import FigureLinks from '@/FigureLinks'
 import { Terminal } from 'xterm'
 import * as fit from 'xterm/lib/addons/fit/fit';
 Terminal.applyAddon(fit);
@@ -326,7 +298,8 @@ import VueMarkdown from 'vue-markdown'
 export default {
   name: 'Project',
   components: {
-    VueMarkdown
+    VueMarkdown,
+    FigureLinks
   },
   props: {
     caption: {

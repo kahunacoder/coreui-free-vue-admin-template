@@ -7,6 +7,7 @@
   "language": "javascript",
   "libraries": ["quasar", "vue", "loki", "cordova"],
   "tld": "gts",
+  "platforms": ["iOS", "android", "web"],
   "root": "/Users/gts/Documents/Projects/Server/SoLunTide/app/",
   "docRoot": "dist",
   "url": "",

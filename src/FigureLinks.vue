@@ -1,6 +1,14 @@
 <template>
-
-  <figure class="figure d-inline-block">
+ <span>
+  <figure v-if="external" :title="title" class="figure d-inline-block">
+    <a :href="link" :target="link" class="mx-auto">
+      <img
+        :src="icon"
+        class="figure-img img-fluid rounded" />
+      <figcaption :class="'figure-caption text-center bg-' + getBadge(status)">{{ name }}</figcaption>
+    </a>
+  </figure>
+  <figure v-else :target="title" class="figure d-inline-block">
     <router-link :to="'/projects/' + link" class="mx-auto">
       <img
         :src="icon"
@@ -8,7 +16,7 @@
       <figcaption :class="'figure-caption text-center bg-' + getBadge(status)">{{ name }}</figcaption>
     </router-link>
   </figure>
-
+</span>
 </template>
 
 <script>
@@ -30,10 +38,15 @@ export default {
     name: {
       type: String,
       default: ''
+    },
+    title: {
+      type: String,
+      default: ''
+    },
+    external: {
+      type: Boolean,
+      default: false
     }
-  },
-  computed: {
-
   },
   methods: {
     goBack() {

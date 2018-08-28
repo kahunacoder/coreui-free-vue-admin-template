@@ -1,5 +1,5 @@
 {
-  "projects": ["soluntide", "wikikaukau", "portfolio", "resume", "poidogradio", "projectsadmin"],
+  "projects": ["soluntide", "wikikaukau", "portfolio", "resume", "poidogradio", "webdevworkspace"],
   "tools": ["oc", "iconmoon"],
   "projectRoot": "./",
   "tld": "gts",
