@@ -13,7 +13,9 @@ import router from './router'
 // cssVars()
 
 Vue.use(BootstrapVue)
+import VueTextareaAutosize from 'vue-textarea-autosize'
 
+Vue.use(VueTextareaAutosize)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

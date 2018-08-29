@@ -125,7 +125,14 @@
            </div>
               </template>
              <div id="editor">
-                <textarea v-model="input" @input="update"></textarea>
+                <!-- <textarea v-model="input" @input="update"></textarea> -->
+                <textarea-autosize
+                  placeholder="Click readme button to open your current readme file"
+                  ref="someName"
+                  v-model="input"
+                  :min-height="30"
+                  @input="update"
+                ></textarea-autosize>
                 <div v-html="compiledMarkdown"></div>
               </div>
               </b-card>
