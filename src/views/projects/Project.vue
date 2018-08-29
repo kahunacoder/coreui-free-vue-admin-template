@@ -119,8 +119,15 @@
               <b-card>
               <template slot="header">
                 README.md
+            <div class="card-header-actions">
+              <text-reader label="Readme" :types="['.md', '.markdown']" @load="input = $event"></text-reader>
+              <button type="button" v-on:click="saveFile()">saveFile</button>
+           </div>
               </template>
-              <vue-markdown># README.md</vue-markdown>
+             <div id="editor">
+                <textarea v-model="input" @input="update"></textarea>
+                <div v-html="compiledMarkdown"></div>
+              </div>
               </b-card>
             </b-tab>
             <b-tab>
@@ -165,10 +172,14 @@
 <script>
 import config from '@/_config'
 import FigureLinks from '@/FigureLinks'
-import { Terminal } from 'xterm'
-import * as fit from 'xterm/lib/addons/fit/fit';
-Terminal.applyAddon(fit);
-import VueMarkdown from 'vue-markdown'
+import TextReader from '@/TextReader'
+
+import marked from 'marked';
+import _ from 'lodash';
+
+// import { Terminal } from 'xterm'
+// import * as fit from 'xterm/lib/addons/fit/fit';
+// Terminal.applyAddon(fit);
 // var term = new Terminal();
 // term.open(document.getElementById('terminal'));
 // // term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ')
@@ -177,8 +188,8 @@ import VueMarkdown from 'vue-markdown'
 export default {
   name: 'Project',
   components: {
-    VueMarkdown,
-    FigureLinks
+    FigureLinks,
+    TextReader
   },
   props: {
     caption: {
@@ -195,7 +206,14 @@ export default {
         }
       }
       return matched
+    },
+    compiledMarkdown: function () {
+      return marked(this.input, { sanitize: true })
     }
+    // readme: function () {
+    //   return this.project.root + 'README.md'
+    // },
+
   },
   data () {
     return {
@@ -210,16 +228,29 @@ export default {
         {key: 'key'},
         {key: 'value'},
       ],
-      webdash: '3456'
+      webdash: '3456',
+      input: ''
     }
   },
-  mounted: () => {
-    let term = new Terminal();
-    term.open(document.getElementById('terminal'));
-    term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ')
-    // term.fit();
-  },
   methods: {
+    update: _.debounce(function (e) {
+      // console.log('Hi')
+        // let height = document.getElementById('editor').scrollHeight
+        console.log(e)
+        this.input = e.target.value
+        // this.input.style.height = height
+      }, 300),
+      saveFile: function() {
+          const data = this.input
+          const blob = new Blob([data], {type: 'text/plain'})
+          const e = document.createEvent('MouseEvents'),
+          a = document.createElement('a');
+          a.download = "README.md";
+          a.href = window.URL.createObjectURL(blob);
+          a.dataset.downloadurl = ['text/plain', a.download, a.href].join(':');
+          e.initEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+          a.dispatchEvent(e);
+      },
     goBack() {
       this.$router.go(-1)
       // this.$router.replace({path: '/users'})
@@ -234,5 +265,32 @@ export default {
 }
 </script>
 <style scoped lang="css">
-@import "../../../node_modules/xterm/dist/xterm.css";
+/* @import "../../../node_modules/xterm/dist/xterm.css"; */
+#editor {
+  height: 100%;
+}
+#editor textarea,
+#editor div {
+  display: inline-block;
+  width: 49%;
+  height: 100%;
+  vertical-align: top;
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+
+textarea {
+  border: none;
+  border-right: 1px solid #ccc;
+  resize: none;
+  outline: none;
+  background-color: #f6f6f6;
+  font-size: 14px;
+  font-family: "Monaco", courier, monospace;
+  padding: 20px;
+}
+
+code {
+  color: #f66;
+}
 </style>

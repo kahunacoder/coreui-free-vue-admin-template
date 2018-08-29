@@ -18,5 +18,64 @@
   "conf": "/Users/gts/Documents/Projects/Server/laradock/nginx/sites/webdevworkspace.conf",
   "npm": true,
   "speedio": "pa_gs",
-  "log": "../logs/webdevworkspace_error.log"
+  "log": "../logs/webdevworkspace_error.log",
+  "bookmarks": [{
+    "guid": "EDo9gbU42Yj1",
+    "title": "CoreUI Pro Bootstrap Admin Template",
+    "index": 0,
+    "dateAdded": 1535555256464000,
+    "lastModified": 1535555374283000,
+    "id": 5649,
+    "typeCode": 1,
+    "charset": "UTF-8",
+    "type": "text/x-moz-place",
+    "uri": "https://coreui.io/demo/#main.html"
+  }, {
+    "guid": "o54SD6IMNtKv",
+    "title": "coreui/coreui-free-vue-admin-template: CoreUI Vue is free Vue admin template based on Bootstrap 4",
+    "index": 1,
+    "dateAdded": 1535555405539000,
+    "lastModified": 1535555419259000,
+    "id": 5651,
+    "typeCode": 1,
+    "charset": "UTF-8",
+    "iconuri": "https://github.com/fluidicon.png",
+    "type": "text/x-moz-place",
+    "uri": "https://github.com/coreui/coreui-free-vue-admin-template"
+  }, {
+    "guid": "btFXqoebkri1",
+    "title": "CodeMirror: User Manual",
+    "index": 2,
+    "dateAdded": 1535555441194000,
+    "lastModified": 1535555450486000,
+    "id": 5652,
+    "typeCode": 1,
+    "charset": "UTF-8",
+    "type": "text/x-moz-place",
+    "uri": "https://codemirror.net/doc/manual.html#styling"
+  }, {
+    "guid": "NqDRyh9bEfaF",
+    "title": "Quill - Your powerful rich text editor",
+    "index": 3,
+    "dateAdded": 1535555463030000,
+    "lastModified": 1535555466909000,
+    "id": 5653,
+    "typeCode": 1,
+    "charset": "UTF-8",
+    "iconuri": "https://quilljs.com/assets/images/favicon.ico",
+    "type": "text/x-moz-place",
+    "uri": "https://quilljs.com/"
+  }, {
+    "guid": "tQu-TPqie8-6",
+    "title": "Introduction - Examples & Tutorials. Learn how to use Introduction · CoreUI",
+    "index": 4,
+    "dateAdded": 1535555511703000,
+    "lastModified": 1535555515840000,
+    "id": 5654,
+    "typeCode": 1,
+    "charset": "UTF-8",
+    "iconuri": "https://coreui.io/docs/assets/img/favicons/android-icon-192x192.png",
+    "type": "text/x-moz-place",
+    "uri": "https://coreui.io/docs/getting-started/introduction/"
+  }]
 }
