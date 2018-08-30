@@ -1,10 +1,10 @@
 {
-  "name": "@coreui/coreui-free-vue-admin-template",
-  "version": "2.0.0-beta.13",
-  "description": "Open Source Bootstrap Admin Template",
-  "author": "Łukasz Holeczek",
-  "homepage": "http://coreui.io",
-  "copyright": "Copyright 2018 creativeLabs Łukasz Holeczek",
+  "name": "WebDev Workspace",
+  "version": "0.1",
+  "description": "Open Source WebDev Workspace",
+  "author": "Gary Smith",
+  "homepage": "https://kahunacoder.com/",
+  "copyright": "Copyright 2018 Gary Smith",
   "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",

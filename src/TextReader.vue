@@ -1,6 +1,6 @@
 <template>
-  <label class="text-reader">
-    {{label}}
+  <label class="text-reader card-header-action btn-close" title="Open">
+    <i class="fa fa-file-text"></i>
     <input type="file" @change="loadTextFromFile" :accept="types">
   </label>
 </template>
@@ -31,13 +31,13 @@ export default {
 .text-reader {
   position: relative;
   /* overflow: hidden; */
-  display: inline-block;
+  /* display: inline-block; */
 
   /* Fancy button looking */
-  border: 2px solid black;
+  /* border: 2px solid black;
   border-radius: 5px;
-  padding: 8px 12px;
-  cursor: pointer;
+  padding: 8px 12px; */
+  margin: 0;
 }
 .text-reader input {
   position: absolute;

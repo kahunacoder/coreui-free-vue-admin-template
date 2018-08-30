@@ -114,32 +114,7 @@
           <b-tabs v-model="tabIndex[0]">
             <b-tab active>
               <template slot="title">
-                <i class="fa fa-road"></i> {{tabs[0]}}
-              </template>
-              <b-card>
-              <template slot="header">
-                README.md
-            <div class="card-header-actions">
-              <text-reader label="Readme" :types="['.md', '.markdown']" @load="input = $event"></text-reader>
-              <button type="button" v-on:click="saveFile()">saveFile</button>
-           </div>
-              </template>
-             <div id="editor">
-                <!-- <textarea v-model="input" @input="update"></textarea> -->
-                <textarea-autosize
-                  placeholder="Click readme button to open your current readme file"
-                  ref="someName"
-                  v-model="input"
-                  :min-height="30"
-                  @input="update"
-                ></textarea-autosize>
-                <div v-html="compiledMarkdown"></div>
-              </div>
-              </b-card>
-            </b-tab>
-            <b-tab>
-              <template slot="title">
-                <i class="fa fa-bookmark"></i> {{tabs[1]}}
+                <i class="fa fa-bookmark"></i> {{tabs[0]}}
               </template>
               <b-card>
               <template slot="header">
@@ -156,6 +131,32 @@
                   <p>{{bookmark.description}}</p>
                 </b-list-group-item>
               </b-list-group>
+              </b-card>
+            </b-tab>
+            <b-tab>
+              <template slot="title">
+                <i class="fa fa-road"></i> {{tabs[1]}}
+              </template>
+              <b-card>
+                <template slot="header">
+                  README.md
+                  <div class="card-header-actions">
+                    <text-reader label="Readme" :types="['.md', '.markdown']" @load="input = $event"></text-reader>
+                    <b-link title="Save" class="card-header-action btn-close" type="button" v-on:click="saveFile()">
+                      <i class="fa fa-save"></i>
+                    </b-link>
+                  </div>
+                </template>
+                <div id="editor">
+                  <textarea-autosize
+                    placeholder="Click readme button to open your current readme file"
+                    ref="readme"
+                    v-model="input"
+                    :min-height="30"
+                    @input="update"
+                  ></textarea-autosize>
+                  <div v-html="compiledMarkdown"></div>
+                </div>
               </b-card>
             </b-tab>
             <b-tab>
@@ -217,17 +218,13 @@ export default {
     compiledMarkdown: function () {
       return marked(this.input, { sanitize: true })
     }
-    // readme: function () {
-    //   return this.project.root + 'README.md'
-    // },
-
   },
   data () {
     return {
       tabIndex: [0, 0],
       tabs: [
-        'README.md',
         'Project Bookmarks',
+        'README.md',
         'Terminal'
       ],
       config: config,
@@ -236,28 +233,29 @@ export default {
         {key: 'value'},
       ],
       webdash: '3456',
-      input: ''
+      input: 'Click readme button to open your current readme file'
     }
+  },
+  mounted: function () {
+    this.input = ''
   },
   methods: {
     update: _.debounce(function (e) {
-      // console.log('Hi')
-        // let height = document.getElementById('editor').scrollHeight
-        console.log(e)
+      if (e.target) {
         this.input = e.target.value
-        // this.input.style.height = height
+      }
       }, 300),
-      saveFile: function() {
-          const data = this.input
-          const blob = new Blob([data], {type: 'text/plain'})
-          const e = document.createEvent('MouseEvents'),
-          a = document.createElement('a');
-          a.download = "README.md";
-          a.href = window.URL.createObjectURL(blob);
-          a.dataset.downloadurl = ['text/plain', a.download, a.href].join(':');
-          e.initEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-          a.dispatchEvent(e);
-      },
+    saveFile: function() {
+        const data = this.input
+        const blob = new Blob([data], {type: 'text/plain'})
+        const e = document.createEvent('MouseEvents'),
+        a = document.createElement('a');
+        a.download = "README.md";
+        a.href = window.URL.createObjectURL(blob);
+        a.dataset.downloadurl = ['text/plain', a.download, a.href].join(':');
+        e.initEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+        a.dispatchEvent(e);
+    },
     goBack() {
       this.$router.go(-1)
       // this.$router.replace({path: '/users'})
